@@ -1,0 +1,213 @@
+@charset "UTF-8";
+body {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: #5a5a5a;
+  font-size: medium;
+  text-align: center;
+  font-family: "微軟正黑體", "Open sans", "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+}
+
+header {
+  display: inline-block;
+  width: 100%;
+  height: 60px;
+  background: #fff;
+  z-index: 1000;
+  font-weight: 400;
+  font-style: normal;
+  -moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.16);
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.16);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.16);
+}
+
+button {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: normal;
+  cursor: pointer;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+  text-align: center;
+}
+button:active {
+  -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+button:focus {
+  outline: 0;
+}
+
+label:after {
+  content: attr(data-title);
+}
+label.checkbox-inline, label.radio-inline {
+  cursor: pointer;
+}
+
+input.form-control {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 6px 12px;
+  background-color: #fff;
+  background: transparent;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+input.form-control:focus {
+  outline: 0;
+  border-color: #0088cc;
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(0, 136, 204, 0.3);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(0, 136, 204, 0.3);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(0, 136, 204, 0.3);
+  -moz-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -o-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -webkit-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+input[type="checkbox"], input[type="radio"] {
+  cursor: pointer;
+}
+
+.red {
+  color: #fff;
+  background-color: #d2322d;
+}
+.red:hover.hover {
+  background-color: #d64742;
+}
+
+.blue {
+  color: #fff;
+  background-color: #0088cc;
+}
+.blue:hover.hover {
+  background-color: #0099e6;
+}
+
+.yellow {
+  color: #fff;
+  background-color: #ed9c28;
+}
+.yellow:hover.hover {
+  background-color: #efa740;
+}
+
+.green {
+  color: #fff;
+  background-color: #47a447;
+}
+.green:hover.hover {
+  background-color: #51b451;
+}
+
+.while {
+  color: #333;
+  background-color: #fff;
+}
+.while:hover.hover {
+  background-color: #e6e6e6;
+}
+
+.black {
+  color: #fff;
+  background-color: #333;
+}
+.black:hover.hover {
+  background-color: #444;
+}
+
+.flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.flex .f1 {
+  flex: 1;
+}
+.flex .f2 {
+  flex: 2;
+}
+.flex .f3 {
+  flex: 3;
+}
+.flex .f4 {
+  flex: 4;
+}
+.flex .f5 {
+  flex: 5;
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.row + .row {
+  margin-top: 15px;
+}
+
+.col {
+  padding: 0 15px;
+}
+
+.loading {
+  position: fixed;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1100;
+  justify-content: center;
+  align-items: center;
+}
