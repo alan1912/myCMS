@@ -14,21 +14,28 @@ $greenHover: #51b451;
 $yellowHover: #efa740;
 $blueHover: #0099e6;
 
+* {
+    @include box-sizing(border-box);
+}
+
 body {
-    position: relative;
-    display: inline-block;
-    width: 100%;
     margin: 0;
     padding: 0;
     color: rgba(90, 90, 90, 1.00);
     font-size: medium;
     text-align: center;
     font-family: "微軟正黑體", "Open sans", "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+    width: 100%;
+    height: 100vh;
+    background-color: #ecedf0;
 }
 
 header {
+    position: fixed;
     display: inline-block;
     width: 100%;
+    left: 0;
+    top: 0;
     height: 60px;
     background: #fff;
     z-index: 1000;
@@ -37,7 +44,38 @@ header {
     @include box-shadow(0 0 5px 0 rgba(0,0,0,0.16));
 }
 
-button {
+nav {
+    bottom: 0px;
+    left: 0px;
+    position: fixed;
+    top: 0px;
+    z-index: 200;
+    .menu {
+        padding-top: 60px;
+        width: 240px;
+        height: 100%;
+        background-color: #fff;
+    }
+}
+
+.inner-wrapper {
+    padding-top: 60px;
+    padding-left: 240px;
+    .container {
+        min-width: 100%;
+        padding: 40px;
+    }
+}
+
+.panel {
+    width: 100%;
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid $green;
+    @include border-radius(4px);
+}
+
+button, .btn {
     display:inline-block;
     font-size: 14px;
     font-weight: normal;
@@ -50,6 +88,7 @@ button {
     background-color: $while;
     border-color: #ccc;
     text-align: center;
+    padding: 6px 12px;
     &:active {
         @include box-shadow(inset 0 3px 5px rgba(0, 0, 0, .3));
     }
@@ -59,6 +98,8 @@ button {
 }
 
 label {
+    display: inline-block;
+    max-width: 100%;
     @include user-select(none);
     &:after {
         content: attr(data-title);
@@ -69,19 +110,21 @@ label {
             margin-left: 10px;
         }
     }
+    &.label {
+        margin-bottom: 5px;
+    }
 }
 
-input {
+input, select{
     &.form-control {
         display: inline-block;
         width: 100%;
-        height: 100%;
+        height: 34px;
         padding: 6px 12px;
         background-color: #fff;
         background: transparent;
         border: 1px solid #ccc;
         font-size: 14px;
-        @include box-sizing(border-box);
         @include border-radius(4px);
         @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, .075));
         &:focus {
@@ -91,14 +134,46 @@ input {
             @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
         }
     }
+    &[type="textarea"] {
+        height: 68px;
+    }
+    &.lg {
+        height: 46px;
+        padding: 10px 16px;
+        &[type="textarea"] {
+            height: 92px;
+        }
+    }
+    
+}
+input {
     &[type="checkbox"],
     &[type="radio"] {
         cursor: pointer;
     }
 }
-
-select {
-
+.input-group {
+    position: relative;
+    display: flex;
+    width: 100%;
+    span.icon {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        border: 0;
+        z-index: 3;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 14px;
+    }
+    input {
+        &.form-control, &.input-lg {
+            padding-left: 42px;
+        }
+    }
 }
 
 table {
@@ -131,10 +206,6 @@ table {
             }
         }
     }
-}
-
-.container {
-
 }
 
 // color
@@ -185,40 +256,49 @@ table {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    &-column {
-        display: flex;
-        flex-direction: column;
-    }
     &-left {
         display: flex;
         justify-content: flex-start;
-        align-items: center;
     }
     &-center {
         display: flex;
         justify-content: center;
-        align-items: center;
     }
     &-right {
         display: flex;
         justify-content: flex-end;
+    }
+    &-top {
+        display: flex;
+        align-items: flex-start;
+    }
+    &-middle {
+        display: flex;
         align-items: center;
     }
-    .f1 {
-        flex: 1;
+    &-bottom {
+        display: flex;
+        align-items: flex-end;
     }
-    .f2 {
-        flex: 2;
+    &-column {
+        display: flex;
+        flex-direction: column;
     }
-    .f3 {
-        flex: 3;
-    }
-    .f4 {
-        flex: 4;
-    }
-    .f5 {
-        flex: 5;
-    }
+}
+.f1 {
+    flex: 1;
+}
+.f2 {
+    flex: 2;
+}
+.f3 {
+    flex: 3;
+}
+.f4 {
+    flex: 4;
+}
+.f5 {
+    flex: 5;
 }
 
 .left {
@@ -231,16 +311,19 @@ table {
     text-align: right;
 }
 
-.row + .row {
-    margin-top: 15px;
+.row {
+    & + .row {
+        margin-top: 15px;
+    }
 }
-.col {
-    padding: 0 15px;
+
+.col + .col{
+    margin-left: 15px;
 }
 
 .loading {
     position: fixed;
-    display: inline-block;
+    display: flex;
     width: 100%;
     height: 100%;
     top: 0;
@@ -249,4 +332,17 @@ table {
     z-index: 1100;
     justify-content: center;
     align-items: center;
+}
+
+// login
+.login-body {
+    height: 100vh;
+}
+.login-container {
+    width: 300px;
+    background-color: #FFF;
+    padding: 33px 33px 15px;
+    border-top: 5px solid $blue;
+    @include border-radius(4px);
+    @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
 }
