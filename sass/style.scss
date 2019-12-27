@@ -43,7 +43,6 @@ body {
 
 header {
     position: fixed;
-    display: inline-block;
     width: 100%;
     left: 0;
     top: 0;
@@ -53,6 +52,19 @@ header {
     font-weight: 400;
     font-style: normal;
     border-bottom: 1px solid #E9E9E6;
+    > .logo-container {
+        max-width: $menuWidth;
+        height: 100%;
+    }
+    > .header-right {
+        height: 100%;
+        > .userbox {
+            width: 200px;
+            padding: 0 25px;
+            border-left: 2px solid #F6F6F6;
+            cursor: pointer;
+        }
+    }
 }
 
 nav {
