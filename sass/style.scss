@@ -14,6 +14,17 @@ $greenHover: #51b451;
 $yellowHover: #efa740;
 $blueHover: #0099e6;
 
+$menuBgColor: #171717;
+$menuBoderColor: #3a3a3a;
+$menuFontColor: #abb4be;
+$menuHoverFontColor: #fff;
+$menuHoverBgColor: #21262d;
+$menuActiveColor: #fff;
+
+$headeHeight: 60px;
+$menuTitleHeight: 50px;
+$menuWidth: 150px;
+
 * {
     @include box-sizing(border-box);
 }
@@ -36,12 +47,12 @@ header {
     width: 100%;
     left: 0;
     top: 0;
-    height: 60px;
+    height: $headeHeight;
     background: #fff;
     z-index: 1000;
     font-weight: 400;
     font-style: normal;
-    @include box-shadow(0 0 5px 0 rgba(0,0,0,0.16));
+    border-bottom: 1px solid #E9E9E6;
 }
 
 nav {
@@ -50,17 +61,150 @@ nav {
     position: fixed;
     top: 0px;
     z-index: 200;
-    .menu {
-        padding-top: 60px;
-        width: 240px;
+    div.menu {
+        color: $menuFontColor;
+        padding-top: $headeHeight;
+        width: $menuWidth;
         height: 100%;
-        background-color: #fff;
+        background-color: $menuBgColor;
+        .menu-header {
+            position: relative;
+            height: $menuTitleHeight;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid $menuBoderColor;
+            @include user-select(none);
+            .menu-icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                width: $menuTitleHeight;
+                height: $menuTitleHeight;
+                top: 0;
+                right: 0;
+                border-left: 1px solid $menuBoderColor;
+                border-right: 1px solid $menuBoderColor;
+                &:hover {
+                    cursor: pointer;
+                    background-color: $menuHoverBgColor;
+                    color: $menuHoverFontColor;
+                }
+            }
+        }
+
+        ul.menu {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            color: $menuFontColor;
+            > li {
+                position: relative;
+                border-top: 1px solid $menuBoderColor;
+                > a {
+                    display: block;
+                    position: relative;
+                    text-decoration: none;
+                    white-space: nowrap;
+                    padding: 15px 10px;
+                    text-align: center;
+                    color: $menuFontColor;
+                    > i {
+                        font-size: 2rem;
+                        margin-right: 0;
+                        vertical-align: middle;
+                        &:after {
+                            content: attr(data-title);
+                            font-size: 14px;
+                            display: block;
+                            margin-top: 10px;
+                        }
+                    }
+                    &:hover {
+                        background-color: $menuBgColor;
+                        color: $menuHoverFontColor;
+                        background-color: $menuHoverBgColor;
+                        & + ul {
+                            display: inline-block;
+                        }
+                    }
+                }
+                &.active > a {
+                    color: $menuActiveColor;
+                }
+                > ul {
+                    display: none;
+                    position: absolute;
+                    top: 0;
+                    left: calc(100%);
+                    padding: 0;
+                    width: 200px;
+                    list-style-type: none;
+                    background-color: $menuBgColor;
+                    border-left: 1px solid $menuBoderColor;
+                    > li {
+                        > a {
+                            display: block;
+                            text-decoration: none;
+                            white-space: nowrap;
+                            border-top: 1px solid $menuBoderColor;
+                            padding: 6px 15px;
+                            text-align: left;
+                            color: $menuFontColor;
+                            &:hover {
+                                background-color: $menuHoverBgColor;
+                                color: $menuHoverFontColor;
+                            }
+                        }
+                        &.active > a {
+                            color: $menuActiveColor;
+                        }
+                    }
+                    &:hover {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
     }
 }
 
+.page-header {
+    position: fixed;
+    top: $headeHeight;
+    min-width: 100%;
+    height: $menuTitleHeight;
+    background: $menuBgColor;
+    padding-left: $menuWidth;
+    color: #fff;
+    @include box-shadow(1px 3px 0 1px #e2e3e6);
+    > .title {
+        font-size: 20px;
+        padding-left: 20px;
+    }
+    > .breadcrumbs {
+        padding-right: 20px;
+        color: #c3c3c3;
+        flex-wrap: nowrap;
+        min-width: 200px;
+        > ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            > li {
+                display: inline;
+                & + li:before {
+                    content: ' / ';
+                }
+            }
+        }
+    }
+}
 .inner-wrapper {
-    padding-top: 60px;
-    padding-left: 240px;
+    padding-top: $headeHeight + $menuTitleHeight;
+    padding-left: $menuWidth;
     .container {
         min-width: 100%;
         padding: 40px;
@@ -71,7 +215,8 @@ nav {
     width: 100%;
     background-color: #fff;
     padding: 15px;
-    border: 1px solid $green;
+    border: 1px solid #fafafa;
+    overflow: auto;
     @include border-radius(4px);
 }
 
@@ -132,6 +277,9 @@ input, select{
             border-color: $blue;
             @include box-shadow(0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(0, 136, 204, 0.3));
             @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
+        }
+        &::placeholder {
+            @include user-select(none);
         }
     }
     &[type="textarea"] {
