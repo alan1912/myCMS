@@ -25,7 +25,7 @@ header {
   top: 0;
   height: 60px;
   background: #fff;
-  z-index: 1000;
+  z-index: 900;
   font-weight: 400;
   font-style: normal;
   border-bottom: 1px solid #E9E9E6;
@@ -36,7 +36,7 @@ nav {
   left: 0px;
   position: fixed;
   top: 0px;
-  z-index: 200;
+  z-index: 900;
 }
 nav div.menu {
   color: #abb4be;
@@ -308,7 +308,6 @@ input[type="checkbox"], input[type="radio"] {
   bottom: 0;
   left: 0;
   border: 0;
-  z-index: 3;
   width: auto;
   display: flex;
   justify-content: center;
@@ -471,7 +470,7 @@ table.table > tbody > tr > td.actions {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.2);
-  z-index: 1100;
+  z-index: 2000;
   justify-content: center;
   align-items: center;
 }
@@ -491,4 +490,42 @@ table.table > tbody > tr > td.actions {
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+div.dialog {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+div.dialog > .box {
+  margin-top: 30px;
+  position: relative;
+  min-width: 200px;
+  min-height: 200px;
+  background-color: #fff;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+div.dialog > .box > .header {
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: 400;
+  border-bottom: 1px solid #E9E9E6;
+}
+div.dialog > .box > .body {
+  padding: 20px;
+  overflow: auto;
+}
+div.dialog > .box > .footer {
+  width: 100%;
+  border-top: 1px solid #E9E9E6;
+  padding: 10px 20px;
 }
