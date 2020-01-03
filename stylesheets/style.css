@@ -247,6 +247,10 @@ label {
   position: relative;
   text-align: left;
   padding-top: 28px;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 label:before, label:after {
   display: inline-block;
@@ -270,14 +274,17 @@ label.must:after {
 label:after {
   content: attr(data-title);
 }
-label > label.checkbox-inline {
+label > label.checkbox-inline,
+label label.radio-inline {
   display: inline-block;
-  width: 100px;
+  width: auto;
   padding: 0;
 }
-label > label.checkbox-inline:after {
+label > label.checkbox-inline:after,
+label label.radio-inline:after {
   position: relative;
-  line-height: 28px;
+  width: auto;
+  vertical-align: middle;
 }
 
 input.form-control, select.form-control {
@@ -328,6 +335,10 @@ input.lg[type="textarea"], select.lg[type="textarea"] {
 
 input[type="checkbox"], input[type="radio"] {
   cursor: pointer;
+}
+
+select {
+  color: rgba(0, 0, 0, 0.45);
 }
 
 .input-group {

@@ -261,6 +261,7 @@ label {
     position: relative;
     text-align: left;
     padding-top: 28px;
+    @include user-select(none);
     &:before, &:after {
         display: inline-block;
         position: absolute;
@@ -283,15 +284,15 @@ label {
         content: attr(data-title);
     }
 
-    > label.checkbox-inline {
+    > label.checkbox-inline,
+    label.radio-inline {
         display: inline-block;
-        width: 100px;
+        width: auto;
         padding: 0;
         &:after {
             position: relative;
-            // left: 20px;
-            // top: 0;
-            line-height: 28px;
+            width: auto;
+            vertical-align: middle;
         }
     }
 }
@@ -330,7 +331,6 @@ input, select{
             height: 92px;
         }
     }
-    
 }
 input {
     &[type="checkbox"],
@@ -338,6 +338,11 @@ input {
         cursor: pointer;
     }
 }
+select {
+    // @include appearance(none);
+    color: rgba(0, 0, 0, .45);
+}
+
 .input-group {
     position: relative;
     display: flex;

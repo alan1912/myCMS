@@ -23,74 +23,48 @@
                     <div class="row">
                         <label class="must" data-title="權限">
                             <label class="checkbox-inline" data-title="新增">
-                                <input type="checkbox" class="perm[]">
+                                <input type="checkbox" name="perm[]">
                             </label>
                             <label class="checkbox-inline" data-title="修改">
-                                <input type="checkbox" class="perm[]">
+                                <input type="checkbox" name="perm[]">
                             </label>
                             <label class="checkbox-inline" data-title="刪除">
-                                <input type="checkbox" class="perm[]">
+                                <input type="checkbox" name="perm[]">
                             </label>
                         </label>
                     </div>
-                    <div class="flex row">
-                        <div class="col f1 flex-right">角色</div>
-                        <div class="col f5 flex-left">
+                    <div class="row">
+                        <label class="must" data-title="角色">
                             <label class="radio-inline" data-title="管理員">
                                 <input type="radio" name="role">
                             </label>
                             <label class="radio-inline" data-title="員工">
                                 <input type="radio" name="role">
                             </label>
-                        </div>
+                        </label>
                     </div>
-                    <div class="flex row">
-                        <div class="f1 col flex-right">
-                            地址
-                        </div>
-                        <div class="f5 col flex-column flex-left">
-                            <div class="flex-left row">
+                    <div class="row">
+                        <label class="must" data-title="地址">
+                            <div class="row">
                                 <select name="city" id="" class="form-control">
                                     <option value="0">請選擇城市</option>
                                 </select>
                             </div>
-                            <div class="flex-left row">
+                            <div class="row">
                                 <select name="area" id="" class="form-control">
                                     <option value="0">請選擇地區</option>
                                 </select>
                             </div>
-                            <div class="flex-left row">
-                                <input type="text" class="form-control" placeholder="請輸入地址1">
+                            <div class="row">
+                                <input type="text" class="form-control" name="address" placeholder="請輸入地址1">
                             </div>
-                        </div>
+                        </label>
                     </div>
-                    <div class="flex row">
-                        <div class="f1 col flex-right">
-                            地址
-                        </div>
-                        <div class="f5 col flex flex-left">
-                            <div class="col">
-                                <select name="city" id="">
-                                    <option value="0">請選擇城市</option>
-                                </select>
-                            </div>
-                            <div class="col">
-                                <select name="area" id="">
-                                    <option value="0">請選擇地區</option>
-                                </select>
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="請輸入地址">
-                            </div>
-                        </div>
+                    <div class="row">
+                        <label class="must" data-title="備註">
+                            <input type="textarea" class="form-control" placeholder="請輸入備註">
+                        </label>
                     </div>
-                    <div class="flex row">
-                        <div class="f1 col flex-right">備註</div>
-                        <div class="f5 col flex-left">
-                            <input type="textarea" class="form-control" name="" id="">
-                        </div>
-                    </div>
-    
                 </div>
             </div>
             <div class="f1 row">
