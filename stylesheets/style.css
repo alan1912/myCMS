@@ -6,6 +6,8 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   padding: 0;
   color: #5a5a5a;
@@ -18,16 +20,16 @@ body {
 }
 
 header {
-  position: fixed;
   width: 100%;
-  left: 0;
-  top: 0;
   height: 60px;
   background: #fff;
   z-index: 900;
   font-weight: 400;
   font-style: normal;
   border-bottom: 1px solid #E9E9E6;
+  -moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.16);
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.16);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.16);
 }
 header > .logo-container {
   max-width: 150px;
@@ -51,7 +53,7 @@ header > .header-right > .userbox > .user-photo {
   width: 60px;
   min-width: 60px;
   height: 100%;
-  margin: 0 10px;
+  margin-left: 10px;
 }
 header > .header-right > .userbox > .user-photo > img {
   display: inline-block;
@@ -89,24 +91,26 @@ header > .header-right > .userbox > .dropdown {
   top: 60px;
 }
 
-nav {
-  bottom: 0px;
-  left: 0px;
-  position: fixed;
-  top: 0px;
-  z-index: 800;
+.content {
+  display: flex;
+  overflow: auto;
+  height: calc(100vh - 60px);
 }
-nav div.menu {
+.content > nav {
+  z-index: 800;
+  height: max-content;
+  min-height: calc(100vh - 60px);
+}
+.content > nav div.menu {
   color: #abb4be;
-  padding-top: 60px;
   width: 150px;
-  height: 100%;
+  min-height: calc(100vh - 60px);
   background-color: #171717;
 }
-nav div.menu .menu-header {
+.content > nav div.menu .menu-header {
+  display: flex;
   position: relative;
   height: 50px;
-  display: flex;
   justify-content: left;
   align-items: center;
   padding: 15px;
@@ -116,7 +120,7 @@ nav div.menu .menu-header {
   -webkit-user-select: none;
   user-select: none;
 }
-nav div.menu .menu-header .menu-icon {
+.content > nav div.menu .menu-header .menu-icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -128,22 +132,22 @@ nav div.menu .menu-header .menu-icon {
   border-left: 1px solid #3a3a3a;
   border-right: 1px solid #3a3a3a;
 }
-nav div.menu .menu-header .menu-icon:hover {
+.content > nav div.menu .menu-header .menu-icon:hover {
   cursor: pointer;
   background-color: #21262d;
   color: #fff;
 }
-nav div.menu ul.menu {
+.content > nav div.menu ul.menu {
   margin: 0;
   padding: 0;
   list-style-type: none;
   color: #abb4be;
 }
-nav div.menu ul.menu > li {
+.content > nav div.menu ul.menu > li {
   position: relative;
   border-top: 1px solid #3a3a3a;
 }
-nav div.menu ul.menu > li > a {
+.content > nav div.menu ul.menu > li > a {
   display: block;
   position: relative;
   text-decoration: none;
@@ -152,29 +156,29 @@ nav div.menu ul.menu > li > a {
   text-align: center;
   color: #abb4be;
 }
-nav div.menu ul.menu > li > a > i {
+.content > nav div.menu ul.menu > li > a > i {
   font-size: 2rem;
   margin-right: 0;
   vertical-align: middle;
 }
-nav div.menu ul.menu > li > a > i:after {
+.content > nav div.menu ul.menu > li > a > i:after {
   content: attr(data-title);
   font-size: 14px;
   display: block;
   margin-top: 10px;
 }
-nav div.menu ul.menu > li > a:hover {
+.content > nav div.menu ul.menu > li > a:hover {
   background-color: #171717;
   color: #fff;
   background-color: #21262d;
 }
-nav div.menu ul.menu > li > a:hover + ul {
+.content > nav div.menu ul.menu > li > a:hover + ul {
   display: inline-block;
 }
-nav div.menu ul.menu > li.active > a {
+.content > nav div.menu ul.menu > li.active > a {
   color: #fff;
 }
-nav div.menu ul.menu > li > ul {
+.content > nav div.menu ul.menu > li > ul {
   display: none;
   position: absolute;
   top: 0;
@@ -188,10 +192,10 @@ nav div.menu ul.menu > li > ul {
   -webkit-border-radius: 0;
   border-radius: 0 4px 4px 0;
 }
-nav div.menu ul.menu > li > ul > li {
+.content > nav div.menu ul.menu > li > ul > li {
   text-align: left;
 }
-nav div.menu ul.menu > li > ul > li > a {
+.content > nav div.menu ul.menu > li > ul > li > a {
   padding: 10px 20px;
   display: inline-block;
   width: 100%;
@@ -200,46 +204,50 @@ nav div.menu ul.menu > li > ul > li > a {
   text-align: left;
   color: #abb4be;
 }
-nav div.menu ul.menu > li > ul > li > a:hover {
+.content > nav div.menu ul.menu > li > ul > li > a:hover {
   cursor: pointer;
   background-color: #21262d;
   color: #fff;
 }
-nav div.menu ul.menu > li > ul > li > a:hover:first-child {
+.content > nav div.menu ul.menu > li > ul > li > a:hover:first-child {
   -moz-border-radius: 0 4px 0 0;
   -webkit-border-radius: 0;
   border-radius: 0 4px 0 0;
 }
-nav div.menu ul.menu > li > ul > li > a:hover:last-child {
+.content > nav div.menu ul.menu > li > ul > li > a:hover:last-child {
   -moz-border-radius: 0 0 4px 0;
   -webkit-border-radius: 0;
   border-radius: 0 0 4px 0;
 }
-nav div.menu ul.menu > li > ul > li > a:hover:only-child {
+.content > nav div.menu ul.menu > li > ul > li > a:hover:only-child {
   -moz-border-radius: 0 4px 4px 0;
   -webkit-border-radius: 0;
   border-radius: 0 4px 4px 0;
 }
-nav div.menu ul.menu > li > ul > li:not(:first-child) > a {
+.content > nav div.menu ul.menu > li > ul > li:not(:first-child) > a {
   border-top: 1px solid #3a3a3a;
 }
-nav div.menu ul.menu > li > ul > li.active > a {
+.content > nav div.menu ul.menu > li > ul > li.active > a {
   color: #fff;
 }
-nav div.menu ul.menu > li > ul:hover {
+.content > nav div.menu ul.menu > li > ul:hover {
   display: inline-block;
   -moz-border-radius: 0 4px 4px 0;
   -webkit-border-radius: 0;
   border-radius: 0 4px 4px 0;
 }
+.content > .inner-wrapper {
+  flex: 1;
+}
+.content > .inner-wrapper .container {
+  min-width: 100%;
+  padding: 20px;
+}
 
 .page-header {
-  position: fixed;
-  top: 60px;
   min-width: 100%;
   height: 50px;
   background: #171717;
-  padding-left: 150px;
   color: #fff;
   z-index: 700;
 }
@@ -265,15 +273,6 @@ nav div.menu ul.menu > li > ul:hover {
   content: ' / ';
 }
 
-.inner-wrapper {
-  padding-top: 110px;
-  padding-left: 150px;
-}
-.inner-wrapper .container {
-  min-width: 100%;
-  padding: 20px;
-}
-
 .panel {
   width: 100%;
   background-color: #fff;
@@ -283,6 +282,11 @@ nav div.menu ul.menu > li > ul:hover {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
 }
 
 button, .btn {

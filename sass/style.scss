@@ -30,6 +30,8 @@ $menuWidth: 150px;
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     margin: 0;
     padding: 0;
     color: rgba(90, 90, 90, 1.00);
@@ -42,16 +44,14 @@ body {
 }
 
 header {
-    position: fixed;
     width: 100%;
-    left: 0;
-    top: 0;
     height: $headeHeight;
     background: #fff;
     z-index: 900;
     font-weight: 400;
     font-style: normal;
     border-bottom: 1px solid #E9E9E6;
+    @include box-shadow(0 0 5px 0 rgba(0,0,0,0.16));
     > .logo-container {
         max-width: $menuWidth;
         height: 100%;
@@ -62,7 +62,6 @@ header {
             display: flex;
             width: 230px;
             height: 100%;
-            // padding: 0 10px;
             border-left: 2px solid #F6F6F6;
             cursor: pointer;
             text-align: left;
@@ -73,7 +72,7 @@ header {
                 width: $headeHeight;
                 min-width: $headeHeight;
                 height: 100%;
-                margin: 0 10px;
+                margin-left: 10px;
                 > img {
                     display: inline-block;
                     width: 100%;
@@ -112,145 +111,152 @@ header {
     }
 }
 
-nav {
-    bottom: 0px;
-    left: 0px;
-    position: fixed;
-    top: 0px;
-    z-index: 800;
-    div.menu {
-        color: $menuFontColor;
-        padding-top: $headeHeight;
-        width: $menuWidth;
-        height: 100%;
-        background-color: $menuBgColor;
-        .menu-header {
-            position: relative;
-            height: $menuTitleHeight;
-            display: flex;
-            justify-content: left;
-            align-items: center;
-            padding: 15px;
-            border-bottom: 1px solid $menuBoderColor;
-            @include user-select(none);
-            .menu-icon {
+.content {
+    $content-height: calc(100vh - #{$headeHeight});
+    display: flex;
+    overflow: auto;
+    height: $content-height;
+    > nav {
+        z-index: 800;
+        height: max-content;
+        min-height: $content-height;
+        div.menu {
+            color: $menuFontColor;
+            width: $menuWidth;
+            min-height: $content-height;
+            background-color: $menuBgColor;
+            .menu-header {
                 display: flex;
-                justify-content: center;
-                align-items: center;
-                position: absolute;
-                width: $menuTitleHeight;
+                position: relative;
                 height: $menuTitleHeight;
-                top: 0;
-                right: 0;
-                border-left: 1px solid $menuBoderColor;
-                border-right: 1px solid $menuBoderColor;
-                &:hover {
-                    cursor: pointer;
-                    background-color: $menuHoverBgColor;
-                    color: $menuHoverFontColor;
+                justify-content: left;
+                align-items: center;
+                padding: 15px;
+                border-bottom: 1px solid $menuBoderColor;
+                @include user-select(none);
+                .menu-icon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    width: $menuTitleHeight;
+                    height: $menuTitleHeight;
+                    top: 0;
+                    right: 0;
+                    border-left: 1px solid $menuBoderColor;
+                    border-right: 1px solid $menuBoderColor;
+                    &:hover {
+                        cursor: pointer;
+                        background-color: $menuHoverBgColor;
+                        color: $menuHoverFontColor;
+                    }
                 }
             }
-        }
-
-        ul.menu {
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
-            color: $menuFontColor;
-            > li {
-                position: relative;
-                border-top: 1px solid $menuBoderColor;
-                > a {
-                    display: block;
+    
+            ul.menu {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+                color: $menuFontColor;
+                > li {
                     position: relative;
-                    text-decoration: none;
-                    white-space: nowrap;
-                    padding: 15px 10px;
-                    text-align: center;
-                    color: $menuFontColor;
-                    > i {
-                        font-size: 2rem;
-                        margin-right: 0;
-                        vertical-align: middle;
-                        &:after {
-                            content: attr(data-title);
-                            font-size: 14px;
-                            display: block;
-                            margin-top: 10px;
-                        }
-                    }
-                    &:hover {
-                        background-color: $menuBgColor;
-                        color: $menuHoverFontColor;
-                        background-color: $menuHoverBgColor;
-                        & + ul {
-                            display: inline-block;
-                        }
-                    }
-                }
-                &.active > a {
-                    color: $menuActiveColor;
-                }
-                > ul {
-                    display: none;
-                    position: absolute;
-                    top: 0;
-                    left: calc(100%);
-                    padding: 0;
-                    width: $menuWidth;
-                    list-style-type: none;
-                    background-color: $menuBgColor;
-                    border-left: 1px solid $menuBoderColor;
-                    @include border-radius(0 4px 4px 0);
-                    > li {
-                        text-align: left;
-                        > a {
-                            padding: 10px 20px;
-                            display: inline-block;
-                            width: 100%;
-                            text-decoration: none;
-                            white-space: nowrap;
-                            text-align: left;
-                            color: $menuFontColor;
-                            &:hover {
-                                cursor: pointer;
-                                background-color: $menuHoverBgColor;
-                                color: $menuHoverFontColor;
-                                &:first-child {
-                                    @include border-radius(0 4px 0 0);
-                                }
-                                &:last-child {
-                                    @include border-radius(0 0 4px 0);
-                                }
-                                &:only-child {
-                                    @include border-radius(0 4px 4px 0);
-                                }
+                    border-top: 1px solid $menuBoderColor;
+                    > a {
+                        display: block;
+                        position: relative;
+                        text-decoration: none;
+                        white-space: nowrap;
+                        padding: 15px 10px;
+                        text-align: center;
+                        color: $menuFontColor;
+                        > i {
+                            font-size: 2rem;
+                            margin-right: 0;
+                            vertical-align: middle;
+                            &:after {
+                                content: attr(data-title);
+                                font-size: 14px;
+                                display: block;
+                                margin-top: 10px;
                             }
                         }
-                        &:not(:first-child) > a {
-                            border-top: 1px solid #3a3a3a;
-                        }
-                        &.active > a {
-                            color: $menuActiveColor;
+                        &:hover {
+                            background-color: $menuBgColor;
+                            color: $menuHoverFontColor;
+                            background-color: $menuHoverBgColor;
+                            & + ul {
+                                display: inline-block;
+                            }
                         }
                     }
-                    &:hover {
-                        display: inline-block;
+                    &.active > a {
+                        color: $menuActiveColor;
+                    }
+                    > ul {
+                        display: none;
+                        position: absolute;
+                        top: 0;
+                        left: calc(100%);
+                        padding: 0;
+                        width: $menuWidth;
+                        list-style-type: none;
+                        background-color: $menuBgColor;
+                        border-left: 1px solid $menuBoderColor;
                         @include border-radius(0 4px 4px 0);
+                        > li {
+                            text-align: left;
+                            > a {
+                                padding: 10px 20px;
+                                display: inline-block;
+                                width: 100%;
+                                text-decoration: none;
+                                white-space: nowrap;
+                                text-align: left;
+                                color: $menuFontColor;
+                                &:hover {
+                                    cursor: pointer;
+                                    background-color: $menuHoverBgColor;
+                                    color: $menuHoverFontColor;
+                                    &:first-child {
+                                        @include border-radius(0 4px 0 0);
+                                    }
+                                    &:last-child {
+                                        @include border-radius(0 0 4px 0);
+                                    }
+                                    &:only-child {
+                                        @include border-radius(0 4px 4px 0);
+                                    }
+                                }
+                            }
+                            &:not(:first-child) > a {
+                                border-top: 1px solid #3a3a3a;
+                            }
+                            &.active > a {
+                                color: $menuActiveColor;
+                            }
+                        }
+                        &:hover {
+                            display: inline-block;
+                            @include border-radius(0 4px 4px 0);
+                        }
                     }
                 }
             }
         }
     }
+    > .inner-wrapper {
+        flex: 1;
+        .container {
+            min-width: 100%;
+            padding: 20px;
+        }
+    }
 }
 
 .page-header {
-    position: fixed;
-    top: $headeHeight;
     min-width: 100%;
     height: $menuTitleHeight;
     background: $menuBgColor;
-    padding-left: $menuWidth;
     color: #fff;
     z-index: 700;
     // @include box-shadow(1px 3px 0 1px #e2e3e6);
@@ -276,14 +282,6 @@ nav {
         }
     }
 }
-.inner-wrapper {
-    padding-top: $headeHeight + $menuTitleHeight;
-    padding-left: $menuWidth;
-    .container {
-        min-width: 100%;
-        padding: 20px;
-    }
-}
 
 .panel {
     width: 100%;
@@ -292,6 +290,11 @@ nav {
     border: 1px solid #fafafa;
     overflow: auto;
     @include border-radius(4px);
+}
+
+img {
+    width: 100%;
+    height: 100%;
 }
 
 button, .btn {
