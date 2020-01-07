@@ -98,8 +98,30 @@
             </div>
 
             <div class="row">
-                <div class="search">
-                    <div class="search-icon"><i class="fa fa-search"></i></div>
+                <div id="search" class="search">
+                    <div class="search-icon" onclick="showSearch()"><i class="fa fa-search"></i></div>
+                    <div class="search-body">
+                        <div class="search-container">
+                            <div class="row">
+                                <label class="" data-title="關鍵字">
+                                    <input type="text" class="form-control" placeholder="請輸入關鍵字">
+                                </label>
+                            </div>
+                            <div class="row">
+                                <label class="" data-title="依商品編號">
+                                    <input type="text" class="form-control" placeholder="請輸入商品編號">
+                                </label>
+                            </div>
+                            <div class="row">
+                                <label class="" data-title="依商品名稱">
+                                    <input type="text" class="form-control" placeholder="請輸入商品名稱">
+                                </label>
+                            </div>
+                            <div class="row right">
+                                <button class="blue hover">搜尋</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
