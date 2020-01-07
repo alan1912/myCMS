@@ -17,3 +17,13 @@ function showSearch() {
         search.classList.add("show")
     }
 }
+
+function showUserMenu() {
+    let profile = document.getElementById("profile")
+    let isShow = profile.classList.contains('show')
+    if (isShow) {
+        profile.classList.remove("show")
+    } else {
+        profile.classList.add("show")
+    }
+}
