@@ -156,18 +156,29 @@ nav {
                     list-style-type: none;
                     background-color: $menuBgColor;
                     border-left: 1px solid $menuBoderColor;
+                    @include border-radius(0 4px 4px 0);
                     > li {
+                        text-align: left;
+                        padding: 10px 20px;
                         > a {
-                            display: block;
+                            display: inline-block;
                             text-decoration: none;
                             white-space: nowrap;
-                            border-top: 1px solid $menuBoderColor;
-                            padding: 6px 15px;
                             text-align: left;
                             color: $menuFontColor;
-                            &:hover {
-                                background-color: $menuHoverBgColor;
-                                color: $menuHoverFontColor;
+                        }
+                        &:hover {
+                            cursor: pointer;
+                            background-color: $menuHoverBgColor;
+                            color: $menuHoverFontColor;
+                            &:first-child {
+                                @include border-radius(0 4px 0 0);
+                            }
+                            &:last-child {
+                                @include border-radius(0 0 4px 0);
+                            }
+                            &:only-child {
+                                @include border-radius(0 4px 4px 0);
                             }
                         }
                         &.active > a {
@@ -176,6 +187,7 @@ nav {
                     }
                     &:hover {
                         display: inline-block;
+                        @include border-radius(0 4px 4px 0);
                     }
                 }
             }
