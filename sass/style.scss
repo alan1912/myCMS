@@ -167,26 +167,26 @@ nav {
                             white-space: nowrap;
                             text-align: left;
                             color: $menuFontColor;
+                            &:hover {
+                                cursor: pointer;
+                                background-color: $menuHoverBgColor;
+                                color: $menuHoverFontColor;
+                                &:first-child {
+                                    @include border-radius(0 4px 0 0);
+                                }
+                                &:last-child {
+                                    @include border-radius(0 0 4px 0);
+                                }
+                                &:only-child {
+                                    @include border-radius(0 4px 4px 0);
+                                }
+                            }
                         }
                         &:not(:first-child) > a {
                             border-top: 1px solid #3a3a3a;
                         }
                         &.active > a {
                             color: $menuActiveColor;
-                        }
-                        &:hover {
-                            cursor: pointer;
-                            background-color: $menuHoverBgColor;
-                            color: $menuHoverFontColor;
-                            &:first-child {
-                                @include border-radius(0 4px 0 0);
-                            }
-                            &:last-child {
-                                @include border-radius(0 0 4px 0);
-                            }
-                            &:only-child {
-                                @include border-radius(0 4px 4px 0);
-                            }
                         }
                     }
                     &:hover {

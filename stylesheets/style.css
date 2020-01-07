@@ -154,31 +154,31 @@ nav div.menu ul.menu > li > ul > li > a {
   text-align: left;
   color: #abb4be;
 }
+nav div.menu ul.menu > li > ul > li > a:hover {
+  cursor: pointer;
+  background-color: #21262d;
+  color: #fff;
+}
+nav div.menu ul.menu > li > ul > li > a:hover:first-child {
+  -moz-border-radius: 0 4px 0 0;
+  -webkit-border-radius: 0;
+  border-radius: 0 4px 0 0;
+}
+nav div.menu ul.menu > li > ul > li > a:hover:last-child {
+  -moz-border-radius: 0 0 4px 0;
+  -webkit-border-radius: 0;
+  border-radius: 0 0 4px 0;
+}
+nav div.menu ul.menu > li > ul > li > a:hover:only-child {
+  -moz-border-radius: 0 4px 4px 0;
+  -webkit-border-radius: 0;
+  border-radius: 0 4px 4px 0;
+}
 nav div.menu ul.menu > li > ul > li:not(:first-child) > a {
   border-top: 1px solid #3a3a3a;
 }
 nav div.menu ul.menu > li > ul > li.active > a {
   color: #fff;
-}
-nav div.menu ul.menu > li > ul > li:hover {
-  cursor: pointer;
-  background-color: #21262d;
-  color: #fff;
-}
-nav div.menu ul.menu > li > ul > li:hover:first-child {
-  -moz-border-radius: 0 4px 0 0;
-  -webkit-border-radius: 0;
-  border-radius: 0 4px 0 0;
-}
-nav div.menu ul.menu > li > ul > li:hover:last-child {
-  -moz-border-radius: 0 0 4px 0;
-  -webkit-border-radius: 0;
-  border-radius: 0 0 4px 0;
-}
-nav div.menu ul.menu > li > ul > li:hover:only-child {
-  -moz-border-radius: 0 4px 4px 0;
-  -webkit-border-radius: 0;
-  border-radius: 0 4px 4px 0;
 }
 nav div.menu ul.menu > li > ul:hover {
   display: inline-block;
