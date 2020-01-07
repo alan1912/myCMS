@@ -195,9 +195,7 @@ nav div.menu ul.menu > li > ul:hover {
   background: #171717;
   padding-left: 150px;
   color: #fff;
-  -moz-box-shadow: 1px 3px 0 1px #e2e3e6;
-  -webkit-box-shadow: 1px 3px 0 1px #e2e3e6;
-  box-shadow: 1px 3px 0 1px #e2e3e6;
+  z-index: 900;
 }
 .page-header > .title {
   font-size: 20px;

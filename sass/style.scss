@@ -207,7 +207,8 @@ nav {
     background: $menuBgColor;
     padding-left: $menuWidth;
     color: #fff;
-    @include box-shadow(1px 3px 0 1px #e2e3e6);
+    z-index: 900;
+    // @include box-shadow(1px 3px 0 1px #e2e3e6);
     > .title {
         font-size: 20px;
         padding-left: 20px;
