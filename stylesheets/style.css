@@ -765,3 +765,6 @@ span.must:before {
     transform: translate(24px, 0);
   }
 }
+.hide {
+  display: none;
+}
