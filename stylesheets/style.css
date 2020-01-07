@@ -37,10 +37,50 @@ header > .header-right {
   height: 100%;
 }
 header > .header-right > .userbox {
-  width: 200px;
-  padding: 0 25px;
+  display: flex;
+  width: 230px;
+  height: 100%;
+  padding: 0 10px;
   border-left: 2px solid #F6F6F6;
   cursor: pointer;
+  text-align: left;
+  vertical-align: middle;
+  align-items: center;
+}
+header > .header-right > .userbox > .user-photo {
+  display: inline-block;
+  width: 60px;
+  min-width: 60px;
+  height: 100%;
+}
+header > .header-right > .userbox > .user-photo > img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+header > .header-right > .userbox > .profile-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  margin: 0 10px;
+  max-width: 110px;
+}
+header > .header-right > .userbox > .profile-info > .email {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #333;
+  font-size: 14px;
+}
+header > .header-right > .userbox > .profile-info > .role {
+  color: #ACACAC;
+  font-size: 12px;
 }
 
 nav {
@@ -619,6 +659,9 @@ div.search > div.search-icon {
   justify-content: center;
   align-items: center;
   border-right: 1px solid #E9E9E6;
+}
+div.search > div.search-icon:hover {
+  color: #0088cc;
 }
 div.search > div.search-body {
   max-height: 0;
