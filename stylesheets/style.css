@@ -40,7 +40,6 @@ header > .header-right > .userbox {
   display: flex;
   width: 230px;
   height: 100%;
-  padding: 0 10px;
   border-left: 2px solid #F6F6F6;
   cursor: pointer;
   text-align: left;
@@ -52,6 +51,7 @@ header > .header-right > .userbox > .user-photo {
   width: 60px;
   min-width: 60px;
   height: 100%;
+  margin: 0 10px;
 }
 header > .header-right > .userbox > .user-photo > img {
   display: inline-block;
@@ -81,6 +81,12 @@ header > .header-right > .userbox > .profile-info > .email {
 header > .header-right > .userbox > .profile-info > .role {
   color: #ACACAC;
   font-size: 12px;
+}
+header > .header-right > .userbox > .dropdown {
+  position: absolute;
+  display: inline-block;
+  width: 230px;
+  top: 60px;
 }
 
 nav {

@@ -62,7 +62,7 @@ header {
             display: flex;
             width: 230px;
             height: 100%;
-            padding: 0 10px;
+            // padding: 0 10px;
             border-left: 2px solid #F6F6F6;
             cursor: pointer;
             text-align: left;
@@ -73,6 +73,7 @@ header {
                 width: $headeHeight;
                 min-width: $headeHeight;
                 height: 100%;
+                margin: 0 10px;
                 > img {
                     display: inline-block;
                     width: 100%;
@@ -100,6 +101,12 @@ header {
                     color: #ACACAC;
                     font-size: 12px;
                 }
+            }
+            > .dropdown {
+                position: absolute;
+                display: inline-block;
+                width: 230px;
+                top: $headeHeight;
             }
         }
     }
