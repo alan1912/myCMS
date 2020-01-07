@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My CMS</title>
+    <title>My Admin</title>
     <link rel="stylesheet" href="stylesheets/style.css">
 
     <link rel="stylesheet" href="stylesheets/fontawesome/css/all.min.css">
+    <script src="js/index.js"></script>
 </head>
 <body>
     <header class="flex">
@@ -92,9 +93,8 @@
     </div>
     <div class="inner-wrapper">
         <div class="container">
-
             <div class="row left">
-                <button class="blue hover">新增</button>
+                <button class="blue hover" onclick="add()">新增</button>
             </div>
 
             <div class="row">
@@ -171,44 +171,46 @@
     <!-- <div class="loading-overlay">
         <div class="loading"><div></div><div></div><div></div><div></div></div>
     </div> -->
-    <!-- <div class="dialog">
-        <div class="box sm">
-            <div class="header">
-                <div class="close"><i class="fa fa-times-circle"></i></div>
-                新增商品
-            </div>
-            <div class="body">
-                <div class="body-container">
-                    <div class="row">
-                        <label class="must" data-title="商品編號">
-                            <input type="text" class="form-control" placeholder="請輸入商品編號">
-                        </label>
-                    </div>
-                    <div class="row">
-                        <label class="must" data-title="商品名稱">
-                            <input type="text" class="form-control" placeholder="請輸入商品名稱">
-                        </label>
-                    </div>
-                    <div class="row">
-                        <label class="must" data-title="商品價格">
-                            <input type="text" class="form-control" placeholder="請輸入商品價格">
-                        </label>
-                    </div>
-                    <div class="row">
-                        <label class="must" data-title="商品備註">
-                            <input type="textarea" class="form-control" placeholder="請輸入商品備註">
-                        </label>
+    <div id="dialog" class="hide">
+        <div class="dialog">
+            <div class="box sm">
+                <div class="header">
+                    <div class="close" onclick="closeDialog()"><i class="fa fa-times-circle"></i></div>
+                    新增文章
+                </div>
+                <div class="body">
+                    <div class="body-container">
+                        <div class="row">
+                            <label class="must" data-title="商品編號">
+                                <input type="text" class="form-control" placeholder="請輸入商品編號">
+                            </label>
+                        </div>
+                        <div class="row">
+                            <label class="must" data-title="商品名稱">
+                                <input type="text" class="form-control" placeholder="請輸入商品名稱">
+                            </label>
+                        </div>
+                        <div class="row">
+                            <label class="must" data-title="商品價格">
+                                <input type="text" class="form-control" placeholder="請輸入商品價格">
+                            </label>
+                        </div>
+                        <div class="row">
+                            <label class="must" data-title="商品備註">
+                                <input type="textarea" class="form-control" placeholder="請輸入商品備註">
+                            </label>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="footer">
-                <div class="row right">
-                    <button class="blue hover">送出</button>
+                <div class="footer">
+                    <div class="row right">
+                        <button class="blue hover">送出</button>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="dialog-backdrop"></div>
     </div>
-    <div class="dialog-backdrop"></div> -->
     
 </body>
 </html>
