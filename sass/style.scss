@@ -156,6 +156,33 @@ header {
     display: flex;
     overflow: auto;
     height: $content-height;
+    #menu-click {
+        display: none;
+        overflow: hidden;
+        top: -999px;
+        left: -999px;
+        @include opacity(0);
+        z-index: -999;
+        &:checked {
+            ~ nav > div.menu {
+                width: 50px;
+                @include transition(width .3s);
+                > .menu-header > .menu-title {
+                    margin-left: -300px;
+                    @include opacity(0);
+                }
+                ul.menu > li {
+                    height: 50px;
+                    > a > i {
+                        font-size: 14px;
+                        &:after {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
     > nav {
         z-index: 800;
         height: max-content;
@@ -163,6 +190,7 @@ header {
         div.menu {
             color: $menuFontColor;
             width: $menuWidth;
+            @include transition(width .3s);
             min-height: $content-height;
             background-color: $menuBgColor;
             .menu-header {
@@ -189,6 +217,10 @@ header {
                         cursor: pointer;
                         background-color: $menuHoverBgColor;
                         color: $menuHoverFontColor;
+                    }
+                    > label {
+                        padding: 0;
+                        text-align: center;
                     }
                 }
             }
