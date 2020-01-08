@@ -27,3 +27,12 @@ function showUserMenu() {
         profile.classList.add("show")
     }
 }
+
+function showMenu(el) {
+    let isShow = el.classList.contains('active')
+    if (isShow) {
+        el.classList.remove("active")
+    } else {
+        el.classList.add("active")
+    }
+}

@@ -14,7 +14,7 @@ $greenHover: #51b451;
 $yellowHover: #efa740;
 $blueHover: #0099e6;
 
-$menuBgColor: #171717;
+$menuBgColor: #1D2127;
 $menuBoderColor: #3a3a3a;
 $menuFontColor: #abb4be;
 $menuHoverFontColor: #fff;
@@ -23,7 +23,7 @@ $menuActiveColor: #fff;
 
 $headeHeight: 60px;
 $menuTitleHeight: 50px;
-$menuWidth: 150px;
+$menuWidth: 250px;
 
 * {
     @include box-sizing(border-box);
@@ -68,6 +68,7 @@ header {
             text-align: left;
             vertical-align: middle;
             align-items: center;
+            @include user-select(none);
             > .user-photo {
                 display: inline-block;
                 width: $headeHeight;
@@ -102,11 +103,8 @@ header {
                     font-size: 12px;
                 }
             }
-            > .caret:before {
-                font-family: "Font Awesome 5 Free";
-                font-weight: 900;
-                content: "\f0d7";
-                // content: "\f0d8";
+            > i {
+                @include transition(transform .5s);
             }
             > .dropdown {
                 max-height: 0;
@@ -137,13 +135,13 @@ header {
                 }
             }
             &.show {
-                > .caret:before {
-                    font-family: "Font Awesome 5 Free";
-                    font-weight: 900;
-                    content: "\f0d8";
+                > i {
+                    @include rotate(-180deg);
+                    @include transition(transform .5s);
                 }
                 > .dropdown {
                     max-height: 500px;
+                    overflow: auto;
                     @include transition(max-height .3s ease-in);
                 }
             }
@@ -173,9 +171,9 @@ header {
                 }
                 ul.menu > li {
                     height: 50px;
-                    > a > i {
-                        font-size: 14px;
-                        &:after {
+                    > a {
+                        padding-left: 15px;
+                        &:before, &:after {
                             display: none;
                         }
                     }
@@ -184,6 +182,8 @@ header {
         }
     }
     > nav {
+        position: sticky;
+        top: 0;
         z-index: 800;
         height: max-content;
         min-height: $content-height;
@@ -224,93 +224,80 @@ header {
                     }
                 }
             }
-    
-            ul.menu {
+
+            max-height: calc(100vh - 110px);
+            overflow: auto;
+            ul {
                 margin: 0;
                 padding: 0;
                 list-style-type: none;
                 color: $menuFontColor;
+            }
+            ul.menu {
+                a {
+                    display: inline-block;
+                    width: 100%;
+                    position: relative;
+                    text-decoration: none;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    padding: 12px 25px;
+                    text-align: left;
+                    color: $menuFontColor;
+                    > i {
+                        vertical-align: middle;
+                        width: 20px;
+                        height: 20px;
+                        font-size: 16px;
+                        text-align: center;
+                    }
+                    &:after {
+                        margin-left: 0.5em;
+                        content: attr(data-title);
+                        font-size: 14px;
+                        margin-top: 10px;
+                    }
+                    &:hover {
+                        color: $menuHoverFontColor;
+                        background-color: $menuHoverBgColor;
+                    }
+                }
+
                 > li {
                     position: relative;
-                    border-top: 1px solid $menuBoderColor;
-                    > a {
-                        display: block;
-                        position: relative;
-                        text-decoration: none;
-                        white-space: nowrap;
-                        padding: 15px 10px;
-                        text-align: center;
-                        color: $menuFontColor;
-                        > i {
-                            font-size: 2rem;
-                            margin-right: 0;
-                            vertical-align: middle;
-                            &:after {
-                                content: attr(data-title);
-                                font-size: 14px;
-                                display: block;
-                                margin-top: 10px;
-                            }
-                        }
-                        &:hover {
-                            background-color: $menuBgColor;
-                            color: $menuHoverFontColor;
-                            background-color: $menuHoverBgColor;
-                            & + ul {
-                                display: inline-block;
-                            }
-                        }
+                    > a:not(:only-child):before {
+                        float: right;
+                        font-family: "Font Awesome 5 Free";
+                        font-weight: 900;
+                        vertical-align: middle;
+                        content: "\f0d7";
+                        @include transition(transform .5s);
                     }
                     &.active > a {
                         color: $menuActiveColor;
+                        &:not(:only-child):before {
+                            @include rotate(-90deg);
+                            @include transition(transform .5s);
+                        }
                     }
                     > ul {
-                        display: none;
-                        position: absolute;
-                        top: 0;
-                        left: calc(100%);
-                        padding: 0;
-                        width: $menuWidth;
-                        list-style-type: none;
-                        background-color: $menuBgColor;
-                        border-left: 1px solid $menuBoderColor;
-                        @include border-radius(0 4px 4px 0);
+                        display: block;
+                        max-height: 0;
+                        overflow: hidden;
+                        @include transition(max-height .5s ease-out);
                         > li {
                             text-align: left;
                             > a {
-                                padding: 10px 20px;
-                                display: inline-block;
-                                width: 100%;
-                                text-decoration: none;
-                                white-space: nowrap;
-                                text-align: left;
-                                color: $menuFontColor;
-                                &:hover {
-                                    cursor: pointer;
-                                    background-color: $menuHoverBgColor;
-                                    color: $menuHoverFontColor;
-                                    &:first-child {
-                                        @include border-radius(0 4px 0 0);
-                                    }
-                                    &:last-child {
-                                        @include border-radius(0 0 4px 0);
-                                    }
-                                    &:only-child {
-                                        @include border-radius(0 4px 4px 0);
-                                    }
-                                }
-                            }
-                            &:not(:first-child) > a {
-                                border-top: 1px solid #3a3a3a;
+                                padding: 6px 15px 6px 50px;
                             }
                             &.active > a {
                                 color: $menuActiveColor;
                             }
                         }
-                        &:hover {
-                            display: inline-block;
-                            @include border-radius(0 4px 4px 0);
-                        }
+                    }
+                    &.active > ul {
+                        max-height: 1000px;
+                        @include transition(max-height .5s ease-in);
                     }
                 }
             }
@@ -729,23 +716,23 @@ div.search {
         }
     }
     > div.search-body {
-        max-height: 0;
-        overflow: hidden;
         text-overflow:ellipsis;
         width: 100%;
         background-color: #fff;
         border-top: 1px solid #E9E9E6;
         @include border-radius(0 0 4px 4px);
-        @include transition(display 1s, max-height .3s ease-out);
+        max-height: 0;
+        overflow: hidden;
+        @include transition(max-height .3s ease-out);
 
         > div.search-container {
             padding: 20px;
         }
     }
     &.show > div.search-body {
+        max-height: 500px;
         overflow: auto;
-        max-height: 400px;
-        @include transition(display 1s, max-height .3s ease-in);
+        @include transition(max-height .3s ease-in);
     }
 }
 

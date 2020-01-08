@@ -23,7 +23,7 @@
                     <span class="email">sky46821@gmail.com</span>
                     <span class="role">管理員</span>
                 </div>
-                <div class="caret"></div>
+                <i class="fas fa-caret-down"></i>
                 <div class="dropdown">
                     <ul>
                         <li><a href="#"><i class="fas fa-user"></i>個人設定</a></li>
@@ -44,65 +44,60 @@
                     </div>
                 </div>
                 <ul class="menu">
-                    <li class="active">
-                        <a href="#">
-                            <i class="fa fa-home"
-                               data-title="首頁"></i>
-                        </a>
-                    </li>
-                    <!-- <li>
-                        <a href="#">
-                            <i class="fa fa-copy"
-                               data-title="頁面"></i>
-                        </a>
-                        <ul>
-                            <li>
-                                <a href="login.html">登入</a>
-                            </li>
-                            <li>
-                                <a href="sigin.html">註冊</a>
-                            </li>
-                            <li>
-                                <a href="404.html">404</a>
-                            </li>
-                            <li>
-                                <a href="500.html">500</a>
-                            </li>
-                        </ul>
-                    </li>
                     <li>
-                        <a href="#">
-                            <i class="fa fa-tasks"
-                               data-title="元件"></i>
+                        <a href="#" data-title="首頁">
+                            <i class="fa fa-home"></i>
+                        </a>
+                    </li>
+                    <li onclick="showMenu(this);">
+                        <a href="#" data-title="頁面">
+                            <i class="fa fa-copy"></i>
                         </a>
                         <ul>
+                            <li class="active">
+                                <a href="login.html" data-title="登入"></a>
+                            </li>
                             <li>
-                                <a href="">按鈕</a>
+                                <a href="sigin.html" data-title="註冊"></a>
+                            </li>
+                            <li>
+                                <a href="404.html" data-title="404"></a>
+                            </li>
+                            <li>
+                                <a href="500.html" data-title="500"></a>
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-list-alt"
-                               data-title="表單"></i>
+                    <li onclick="showMenu(this);">
+                        <a href="#" data-title="元件">
+                            <i class="fa fa-tasks"></i>
                         </a>
                         <ul>
                             <li>
-                                <a href="">預設</a>
+                                <a href="" data-title="按鈕"></a>
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-table"
-                               data-title="表格"></i>
+                    <li onclick="showMenu(this);">
+                        <a href="#" data-title="表單">
+                            <i class="fa fa-list-alt"></i>
                         </a>
                         <ul>
                             <li>
-                                <a href="">預設</a>
+                                <a href="" data-title="預設"></a>
                             </li>
                         </ul>
-                    </li> -->
+                    </li>
+                    <li onclick="showMenu(this);">
+                        <a href="#" data-title="表格">
+                            <i class="fa fa-table"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="" data-title="預設"></a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </nav>
