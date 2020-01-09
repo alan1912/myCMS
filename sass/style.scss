@@ -57,7 +57,7 @@ header {
     > .logo-container {
         display: flex;
         justify-content: flex-start;
-        max-width: $menuWidth;
+        width: $menuWidth;
         height: 100%;
     }
     > .header-right {
@@ -509,6 +509,7 @@ select {
 
 // table
 table {
+    min-width: max-content;
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;

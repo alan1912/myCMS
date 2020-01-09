@@ -33,7 +33,7 @@ header {
 header > .logo-container {
   display: flex;
   justify-content: flex-start;
-  max-width: 250px;
+  width: 250px;
   height: 100%;
 }
 header > .header-right {
@@ -538,6 +538,7 @@ select {
 }
 
 table {
+  min-width: max-content;
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
