@@ -36,3 +36,13 @@ function showMenu(el) {
         el.classList.add("active")
     }
 }
+
+function hidePanel(el) {
+    let isHide = el.classList.contains('panel-collapsed')
+    if (isHide) {
+        el.classList.remove("panel-collapsed")
+    } else {
+        el.classList.add("panel-collapsed")
+    }
+    
+}
