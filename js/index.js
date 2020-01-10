@@ -37,7 +37,8 @@ function showMenu(el) {
     }
 }
 
-function hidePanel(el) {
+function hidePanel() {
+    let el = document.getElementById("main-panel")
     let isHide = el.classList.contains('panel-collapsed')
     if (isHide) {
         el.classList.remove("panel-collapsed")

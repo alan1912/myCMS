@@ -148,8 +148,12 @@
                     </div>
     
                     <div class="row flex">
-                        <div class="panel" onclick="hidePanel(this);">
-                            <div class="panel-header" data-title="發票列表"></div>
+                        <div id="main-panel" class="panel">
+                            <div class="panel-header" data-title="發票列表">
+                                <div class="panel-actions">
+                                    <i class="fas fa-caret-down" onclick="hidePanel();"></i>
+                                </div>
+                            </div>
                             <div class="panel-body">
                                 <div class="panel-content">
                                     <div class="row">
