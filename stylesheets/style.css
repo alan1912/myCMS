@@ -163,27 +163,45 @@ header > .header-right > .userbox.show > .dropdown {
   opacity: 0;
   z-index: -999;
 }
-.content #menu-click:checked ~ nav > div.menu {
-  width: 50px;
-  overflow: hidden;
+.content #menu-click:checked ~ nav > div.sidebar > .menu-header {
+  margin-left: -300px;
   -moz-transition: width 0.3s;
   -o-transition: width 0.3s;
   -webkit-transition: width 0.3s;
   transition: width 0.3s;
 }
-.content #menu-click:checked ~ nav > div.menu > .menu-header > .menu-title {
-  margin-left: -300px;
+.content #menu-click:checked ~ nav > div.sidebar > .menu {
+  width: 50px;
+  -moz-transition: width 0.3s;
+  -o-transition: width 0.3s;
+  -webkit-transition: width 0.3s;
+  transition: width 0.3s;
+}
+.content #menu-click:checked ~ nav > div.sidebar > .menu ul > li > a {
+  padding: 15px;
+}
+.content #menu-click:checked ~ nav > div.sidebar > .menu ul > li > a:after, .content #menu-click:checked ~ nav > div.sidebar > .menu ul > li > a:before {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
-.content #menu-click:checked ~ nav > div.menu ul.menu > li {
-  height: 50px;
-}
-.content #menu-click:checked ~ nav > div.menu ul.menu > li > a {
-  padding-left: 15px;
-}
-.content #menu-click:checked ~ nav > div.menu ul.menu > li > a:before, .content #menu-click:checked ~ nav > div.menu ul.menu > li > a:after {
+.content #menu-click:checked ~ nav > div.sidebar > .menu ul > li > ul {
   display: none;
+}
+.content #menu-click:checked ~ nav > div.sidebar > .menu:hover {
+  width: 250px;
+}
+.content #menu-click:checked ~ nav > div.sidebar > .menu:hover ul > li a {
+  padding: 15px 25px;
+}
+.content #menu-click:checked ~ nav > div.sidebar > .menu:hover ul > li a:after, .content #menu-click:checked ~ nav > div.sidebar > .menu:hover ul > li a:before {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+.content #menu-click:checked ~ nav > div.sidebar > .menu:hover ul > li > ul {
+  display: block;
+}
+.content #menu-click:checked ~ nav > div.sidebar > .menu:hover ul > li > ul > li > a {
+  padding: 6px 15px 6px 50px;
 }
 .content > nav {
   position: sticky;
@@ -192,21 +210,19 @@ header > .header-right > .userbox.show > .dropdown {
   height: max-content;
   min-height: calc(100vh - 60px);
 }
-.content > nav div.menu {
+.content > nav div.sidebar {
   color: #abb4be;
-  width: 250px;
   -moz-transition: width 0.3s;
   -o-transition: width 0.3s;
   -webkit-transition: width 0.3s;
   transition: width 0.3s;
   min-height: calc(100vh - 60px);
-  background-color: #1D2127;
   max-height: calc(100vh - 110px);
-  overflow: auto;
 }
-.content > nav div.menu .menu-header {
+.content > nav div.sidebar .menu-header {
   display: flex;
   position: relative;
+  background-color: #1D2127;
   height: 50px;
   justify-content: left;
   align-items: center;
@@ -217,7 +233,7 @@ header > .header-right > .userbox.show > .dropdown {
   -webkit-user-select: none;
   user-select: none;
 }
-.content > nav div.menu .menu-header .menu-icon {
+.content > nav div.sidebar .menu-header .menu-icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -229,67 +245,74 @@ header > .header-right > .userbox.show > .dropdown {
   border-left: 1px solid #3a3a3a;
   border-right: 1px solid #3a3a3a;
 }
-.content > nav div.menu .menu-header .menu-icon:hover {
+.content > nav div.sidebar .menu-header .menu-icon:hover {
   cursor: pointer;
   background-color: #21262d;
   color: #fff;
 }
-.content > nav div.menu .menu-header .menu-icon > label {
+.content > nav div.sidebar .menu-header .menu-icon > label {
   padding: 0;
   text-align: center;
 }
-.content > nav div.menu ul {
+.content > nav div.sidebar div.menu {
+  background-color: #1D2127;
+  width: 250px;
+  height: calc(100vh - 110px);
+  max-height: 100vh;
+  overflow: auto;
+}
+.content > nav div.sidebar div.menu ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
   color: #abb4be;
 }
-.content > nav div.menu ul.menu a {
+.content > nav div.sidebar div.menu ul a {
   display: inline-block;
   width: 100%;
   position: relative;
   text-decoration: none;
   white-space: nowrap;
   text-overflow: ellipsis;
-  padding: 12px 25px;
+  padding: 15px 25px;
   text-align: left;
   color: #abb4be;
 }
-.content > nav div.menu ul.menu a > i {
+.content > nav div.sidebar div.menu ul a > i {
   vertical-align: middle;
   width: 20px;
   height: 20px;
   font-size: 16px;
   text-align: center;
 }
-.content > nav div.menu ul.menu a:after {
+.content > nav div.sidebar div.menu ul a:after {
   margin-left: 0.5em;
   content: attr(data-title);
   font-size: 14px;
   margin-top: 10px;
 }
-.content > nav div.menu ul.menu a:hover {
+.content > nav div.sidebar div.menu ul a:hover {
   color: #fff;
   background-color: #21262d;
 }
-.content > nav div.menu ul.menu > li {
+.content > nav div.sidebar div.menu ul > li {
   position: relative;
 }
-.content > nav div.menu ul.menu > li > a:not(:only-child):before {
+.content > nav div.sidebar div.menu ul > li > a:not(:only-child):before {
   float: right;
+  vertical-align: middle;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
-  vertical-align: middle;
   content: "\f0d7";
   -moz-transition: -moz-transform 0.3s;
   -o-transition: -o-transform 0.3s;
   -webkit-transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
 }
-.content > nav div.menu ul.menu > li.active > a {
+.content > nav div.sidebar div.menu ul > li.active > a {
   color: #fff;
 }
-.content > nav div.menu ul.menu > li.active > a:not(:only-child):before {
+.content > nav div.sidebar div.menu ul > li.active > a:not(:only-child):before {
   -moz-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
   -webkit-transform: rotate(-90deg);
@@ -299,7 +322,7 @@ header > .header-right > .userbox.show > .dropdown {
   -webkit-transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
 }
-.content > nav div.menu ul.menu > li > ul {
+.content > nav div.sidebar div.menu ul > li > ul {
   display: block;
   max-height: 0;
   overflow: hidden;
@@ -308,16 +331,16 @@ header > .header-right > .userbox.show > .dropdown {
   -webkit-transition: max-height 0.3s ease-out;
   transition: max-height 0.3s ease-out;
 }
-.content > nav div.menu ul.menu > li > ul > li {
+.content > nav div.sidebar div.menu ul > li > ul > li {
   text-align: left;
 }
-.content > nav div.menu ul.menu > li > ul > li > a {
+.content > nav div.sidebar div.menu ul > li > ul > li > a {
   padding: 6px 15px 6px 50px;
 }
-.content > nav div.menu ul.menu > li > ul > li.active > a {
+.content > nav div.sidebar div.menu ul > li > ul > li.active > a {
   color: #fff;
 }
-.content > nav div.menu ul.menu > li.active > ul {
+.content > nav div.sidebar div.menu ul > li.active > ul {
   max-height: 1000px;
   -moz-transition: max-height 0.3s ease-in;
   -o-transition: max-height 0.3s ease-in;

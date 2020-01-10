@@ -169,45 +169,43 @@ header {
         @include opacity(0);
         z-index: -999;
         &:checked {
-            ~ nav > div.menu {
-                width: 50px;
-                overflow: hidden;
-                @include transition(width .3s);
-                > .menu-header > .menu-title {
+            ~ nav > div.sidebar {
+                > .menu-header {
                     margin-left: -300px;
-                    @include opacity(0);
+                    @include transition(width .3s);
                 }
-                ul.menu {
-                    > li {
-                        height: 50px;
+                > .menu {
+                    width: 50px;
+                    @include transition(width .3s);
+                    ul > li {
                         > a {
-                            padding-left: 15px;
-                            &:before, &:after {
-                                display: none;
+                            padding: 15px;
+                            &:after, &:before {
+                                @include opacity(0);
+                            }
+                        }
+                        > ul {
+                            display:none;
+                        }
+                    }
+                    &:hover {
+                        width: $menuWidth;
+                        ul > li {
+                            a {
+                                padding: 15px 25px;
+                                &:after, &:before {
+                                    @include opacity(1);
+                                }
+                            }
+                            > ul {
+                                > li > a {
+                                    padding: 6px 15px 6px 50px;
+                                }
+                                display: block;
                             }
                         }
                     }
                 }
-                // ul.menu > li:hover {
-                //     width: $menuWidth;
-                //     overflow: auto;
-                //     > .menu-header > .menu-title {
-                //         margin-left: 0;
-                //         @include opacity(1);
-                //     }
-                //     ul.menu {
-                //         > li {
-                //             height: auto;
-                //             > a {
-                //                 padding-left: 15px;
-                //                 &:before, &:after {
-                //                     display: inline-block;
-                //                 }
-                //             }
-                //         }
-                //     }
-                // }
-                
             }
         }
     }
@@ -217,15 +215,15 @@ header {
         z-index: 800;
         height: max-content;
         min-height: $content-height;
-        div.menu {
+        div.sidebar {
             color: $menuFontColor;
-            width: $menuWidth;
             @include transition(width .3s);
             min-height: $content-height;
-            background-color: $menuBgColor;
+            max-height: calc(100vh - 110px);
             .menu-header {
                 display: flex;
                 position: relative;
+                background-color: $menuBgColor;
                 height: $menuTitleHeight;
                 justify-content: left;
                 align-items: center;
@@ -255,79 +253,82 @@ header {
                 }
             }
 
-            max-height: calc(100vh - 110px);
-            overflow: auto;
-            ul {
-                margin: 0;
-                padding: 0;
-                list-style-type: none;
-                color: $menuFontColor;
-            }
-            ul.menu {
-                a {
-                    display: inline-block;
-                    width: 100%;
-                    position: relative;
-                    text-decoration: none;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                    padding: 12px 25px;
-                    text-align: left;
+            div.menu {
+                background-color: $menuBgColor;
+                width: $menuWidth;
+                height: calc(100vh - 110px);
+                max-height: 100vh;
+                overflow: auto;
+                ul {
+                    margin: 0;
+                    padding: 0;
+                    list-style-type: none;
                     color: $menuFontColor;
-                    > i {
-                        vertical-align: middle;
-                        width: 20px;
-                        height: 20px;
-                        font-size: 16px;
-                        text-align: center;
+                    a {
+                        display: inline-block;
+                        width: 100%;
+                        position: relative;
+                        text-decoration: none;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        padding: 15px 25px;
+                        text-align: left;
+                        color: $menuFontColor;
+                        > i {
+                            vertical-align: middle;
+                            width: 20px;
+                            height: 20px;
+                            font-size: 16px;
+                            text-align: center;
+                        }
+                        &:after {
+                            margin-left: 0.5em;
+                            content: attr(data-title);
+                            font-size: 14px;
+                            margin-top: 10px;
+                        }
+                        &:hover {
+                            color: $menuHoverFontColor;
+                            background-color: $menuHoverBgColor;
+                        }
                     }
-                    &:after {
-                        margin-left: 0.5em;
-                        content: attr(data-title);
-                        font-size: 14px;
-                        margin-top: 10px;
-                    }
-                    &:hover {
-                        color: $menuHoverFontColor;
-                        background-color: $menuHoverBgColor;
-                    }
-                }
-
-                > li {
-                    position: relative;
-                    > a:not(:only-child):before {
-                        float: right;
-                        font-family: "Font Awesome 5 Free";
-                        font-weight: 900;
-                        vertical-align: middle;
-                        content: "\f0d7";
-                        @include transition(transform .3s);
-                    }
-                    &.active > a {
-                        color: $menuActiveColor;
-                        &:not(:only-child):before {
-                            @include rotate(-90deg);
+    
+                    > li {
+                        position: relative;
+                        > a:not(:only-child):before {
+                            float: right;
+                            vertical-align: middle;
+                            font-family: "Font Awesome 5 Free";
+                            font-weight: 900;
+                            content: "\f0d7";
                             @include transition(transform .3s);
                         }
-                    }
-                    > ul {
-                        display: block;
-                        max-height: 0;
-                        overflow: hidden;
-                        @include transition(max-height .3s ease-out);
-                        > li {
-                            text-align: left;
-                            > a {
-                                padding: 6px 15px 6px 50px;
-                            }
-                            &.active > a {
-                                color: $menuActiveColor;
+                        &.active > a {
+                            color: $menuActiveColor;
+                            &:not(:only-child):before {
+                                @include rotate(-90deg);
+                                @include transition(transform .3s);
                             }
                         }
-                    }
-                    &.active > ul {
-                        max-height: 1000px;
-                        @include transition(max-height .3s ease-in);
+                        > ul {
+                            display: block;
+                            max-height: 0;
+                            overflow: hidden;
+                            @include transition(max-height .3s ease-out);
+                            > li {
+                                text-align: left;
+                                > a {
+                                    padding: 6px 15px 6px 50px;
+                                }
+                                &.active > a {
+                                    color: $menuActiveColor;
+                                }
+                            }
+                        }
+                        &.active > ul {
+                            max-height: 1000px;
+                            @include transition(max-height .3s ease-in);
+                        }
                     }
                 }
             }
