@@ -169,7 +169,7 @@ header {
         @include opacity(0);
         z-index: -999;
         &:checked {
-            ~ nav > div.sidebar {
+            ~ div.sidebar {
                 > .menu-header {
                     margin-left: -300px;
                     @include transition(width .3s);
@@ -217,7 +217,6 @@ header {
         min-height: $content-height;
         div.sidebar {
             color: $menuFontColor;
-            @include transition(width .3s);
             min-height: $content-height;
             max-height: calc(100vh - 110px);
             .menu-header {
@@ -230,6 +229,7 @@ header {
                 padding: 15px;
                 border-bottom: 1px solid $menuBoderColor;
                 @include user-select(none);
+                @include transition(width .3s);
                 .menu-icon {
                     display: flex;
                     justify-content: center;
@@ -259,6 +259,7 @@ header {
                 height: calc(100vh - 110px);
                 max-height: 100vh;
                 overflow: auto;
+                @include transition(width .3s);
                 ul {
                     margin: 0;
                     padding: 0;

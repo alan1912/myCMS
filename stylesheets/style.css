@@ -163,44 +163,44 @@ header > .header-right > .userbox.show > .dropdown {
   opacity: 0;
   z-index: -999;
 }
-.content #menu-click:checked ~ nav > div.sidebar > .menu-header {
+.content #menu-click:checked ~ div.sidebar > .menu-header {
   margin-left: -300px;
   -moz-transition: width 0.3s;
   -o-transition: width 0.3s;
   -webkit-transition: width 0.3s;
   transition: width 0.3s;
 }
-.content #menu-click:checked ~ nav > div.sidebar > .menu {
+.content #menu-click:checked ~ div.sidebar > .menu {
   width: 50px;
   -moz-transition: width 0.3s;
   -o-transition: width 0.3s;
   -webkit-transition: width 0.3s;
   transition: width 0.3s;
 }
-.content #menu-click:checked ~ nav > div.sidebar > .menu ul > li > a {
+.content #menu-click:checked ~ div.sidebar > .menu ul > li > a {
   padding: 15px;
 }
-.content #menu-click:checked ~ nav > div.sidebar > .menu ul > li > a:after, .content #menu-click:checked ~ nav > div.sidebar > .menu ul > li > a:before {
+.content #menu-click:checked ~ div.sidebar > .menu ul > li > a:after, .content #menu-click:checked ~ div.sidebar > .menu ul > li > a:before {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
-.content #menu-click:checked ~ nav > div.sidebar > .menu ul > li > ul {
+.content #menu-click:checked ~ div.sidebar > .menu ul > li > ul {
   display: none;
 }
-.content #menu-click:checked ~ nav > div.sidebar > .menu:hover {
+.content #menu-click:checked ~ div.sidebar > .menu:hover {
   width: 250px;
 }
-.content #menu-click:checked ~ nav > div.sidebar > .menu:hover ul > li a {
+.content #menu-click:checked ~ div.sidebar > .menu:hover ul > li a {
   padding: 15px 25px;
 }
-.content #menu-click:checked ~ nav > div.sidebar > .menu:hover ul > li a:after, .content #menu-click:checked ~ nav > div.sidebar > .menu:hover ul > li a:before {
+.content #menu-click:checked ~ div.sidebar > .menu:hover ul > li a:after, .content #menu-click:checked ~ div.sidebar > .menu:hover ul > li a:before {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
-.content #menu-click:checked ~ nav > div.sidebar > .menu:hover ul > li > ul {
+.content #menu-click:checked ~ div.sidebar > .menu:hover ul > li > ul {
   display: block;
 }
-.content #menu-click:checked ~ nav > div.sidebar > .menu:hover ul > li > ul > li > a {
+.content #menu-click:checked ~ div.sidebar > .menu:hover ul > li > ul > li > a {
   padding: 6px 15px 6px 50px;
 }
 .content > nav {
@@ -212,10 +212,6 @@ header > .header-right > .userbox.show > .dropdown {
 }
 .content > nav div.sidebar {
   color: #abb4be;
-  -moz-transition: width 0.3s;
-  -o-transition: width 0.3s;
-  -webkit-transition: width 0.3s;
-  transition: width 0.3s;
   min-height: calc(100vh - 60px);
   max-height: calc(100vh - 110px);
 }
@@ -232,6 +228,10 @@ header > .header-right > .userbox.show > .dropdown {
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  -moz-transition: width 0.3s;
+  -o-transition: width 0.3s;
+  -webkit-transition: width 0.3s;
+  transition: width 0.3s;
 }
 .content > nav div.sidebar .menu-header .menu-icon {
   display: flex;
@@ -260,6 +260,10 @@ header > .header-right > .userbox.show > .dropdown {
   height: calc(100vh - 110px);
   max-height: 100vh;
   overflow: auto;
+  -moz-transition: width 0.3s;
+  -o-transition: width 0.3s;
+  -webkit-transition: width 0.3s;
+  transition: width 0.3s;
 }
 .content > nav div.sidebar div.menu ul {
   margin: 0;
