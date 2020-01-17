@@ -176,11 +176,13 @@ header {
                 }
                 > .menu {
                     width: 50px;
+                    overflow: hidden;
                     @include transition(width .3s);
                     ul > li {
                         > a {
                             padding: 15px;
                             &:after, &:before {
+                                display: none;
                                 @include opacity(0);
                             }
                         }
@@ -194,6 +196,7 @@ header {
                             a {
                                 padding: 15px 25px;
                                 &:after, &:before {
+                                    display: inline;
                                     @include opacity(1);
                                 }
                             }
