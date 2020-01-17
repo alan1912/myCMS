@@ -700,6 +700,9 @@ select {
                     vertical-align: middle;
                     > a {
                         color: #666;
+                        &:hover {
+                            color: #333;
+                        }
                         & + a {
                             margin-left: 5px;
                         }
@@ -921,15 +924,16 @@ div.dialog-container {
         max-width: 100%;
         background-color: #fff;
         @include border-radius(4px);
-        &.lg {
-            width: 100%;
+        &.sm {
+            width: 25%;
         }
         &.md {
             width: 60%;
         }
-        &.sm {
-            width: 25%;
+        &.lg {
+            width: 100%;
         }
+        
         > .header {
             padding: 10px 20px;
             font-size: 18px;

@@ -746,6 +746,9 @@ select {
 .table > tbody > tr > td.actions > a {
   color: #666;
 }
+.table > tbody > tr > td.actions > a:hover {
+  color: #333;
+}
 .table > tbody > tr > td.actions > a + a {
   margin-left: 5px;
 }
@@ -989,14 +992,14 @@ div.dialog-container > .box {
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-div.dialog-container > .box.lg {
-  width: 100%;
+div.dialog-container > .box.sm {
+  width: 25%;
 }
 div.dialog-container > .box.md {
   width: 60%;
 }
-div.dialog-container > .box.sm {
-  width: 25%;
+div.dialog-container > .box.lg {
+  width: 100%;
 }
 div.dialog-container > .box > .header {
   padding: 10px 20px;
