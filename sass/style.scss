@@ -482,6 +482,49 @@ button, .btn {
     &:focus {
         outline: 0;
     }
+
+    &.red {
+        color: $while;
+        background-color: $red;
+        &:hover {
+            background-color: $redHover;
+        }
+    }
+    &.blue {
+        color: $while;
+        background-color: $blue;
+        &:hover {
+            background-color: $blueHover;
+        }
+    }
+    &.yellow {
+        color: $while;
+        background-color: $yellow;
+        &:hover {
+            background-color: $yellowHover;
+        }
+    }
+    &.green {
+        color: $while;
+        background-color: $green;
+        &:hover {
+            background-color: $greenHover;
+        }
+    }
+    &.while {
+        color: $black;
+        background-color: $while;
+        &:hover {
+            background-color: $whileHover;
+        }
+    }
+    &.black {
+        color: $while;
+        background-color: $black;
+        &:hover {
+            background-color: $blackHover;
+        }
+    }
 }
 
 label {
@@ -524,6 +567,39 @@ label {
             width: auto;
             vertical-align: middle;
         }
+    }
+}
+
+span.label {
+    display: inline;
+    padding: 3px 6px;
+    font-size: 14px;
+    font-weight: 500;
+    max-width: max-content;
+    @include border-radius(.25em);
+    &.red {
+        color: $while;
+        background-color: $red;
+    }
+    &.blue {
+        color: $while;
+        background-color: $blue;
+    }
+    &.yellow {
+        color: $while;
+        background-color: $yellow;
+    }
+    &.green {
+        color: $while;
+        background-color: $green;
+    }
+    &.while {
+        color: $black;
+        background-color: $while;
+    }
+    &.black {
+        color: $while;
+        background-color: $black;
     }
 }
 
@@ -597,32 +673,36 @@ select {
 }
 
 // table
-table {
+.table {
     min-width: max-content;
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
-    &.table {
-        > thead {
-            > tr {
-                > th {
-                    vertical-align: bottom;
-                    border-bottom: 2px solid #ddd;
-                    padding: 8px;
-                }
-            }
-            &:first-child > tr:first-child > th {
-                border-top: 0;
+    > thead {
+        > tr {
+            > th {
+                vertical-align: bottom;
+                border-bottom: 2px solid #ddd;
+                padding: 8px;
             }
         }
-        > tbody {
-            > tr {
-                > td {
-                    padding: 8px;
-                    vertical-align: top;
-                    border-top: 1px solid #ddd;
-                    &.actions {
-                        vertical-align: middle;
+        &:first-child > tr:first-child > th {
+            border-top: 0;
+        }
+    }
+    > tbody {
+        > tr {
+            > td {
+                padding: 8px;
+                vertical-align: top;
+                border-top: 1px solid #ddd;
+                &.actions {
+                    vertical-align: middle;
+                    > a {
+                        color: #666;
+                        & + a {
+                            margin-left: 5px;
+                        }
                     }
                 }
             }
@@ -630,49 +710,6 @@ table {
     }
 }
 
-// color
-.red {
-    color: $while;
-    background-color: $red;
-    &:hover.hover {
-        background-color: $redHover;
-    }
-}
-.blue {
-    color: $while;
-    background-color: $blue;
-    &:hover.hover {
-        background-color: $blueHover;
-    }
-}
-.yellow {
-    color: $while;
-    background-color: $yellow;
-    &:hover.hover {
-        background-color: $yellowHover;
-    }
-}
-.green {
-    color: $while;
-    background-color: $green;
-    &:hover.hover {
-        background-color: $greenHover;
-    }
-}
-.while {
-    color: $black;
-    background-color: $while;
-    &:hover.hover {
-        background-color: $whileHover;
-    }
-}
-.black {
-    color: $while;
-    background-color: $black;
-    &:hover.hover {
-        background-color: $blackHover;
-    }
-}
 
 // flex
 .flex {
@@ -861,6 +898,12 @@ div.search {
 
 // dialog
 div.dialog {
+    display: none;
+    &.show {
+        display: inline-block;
+    }
+}
+div.dialog-container {
     display: flex;
     position: fixed;
     top: 0;
@@ -913,7 +956,7 @@ div.dialog {
         }
     }
 }
-div.dialog + div.dialog-backdrop {
+div.dialog-container + div.dialog-backdrop {
     position: fixed;
     top: 0;
     right: 0;

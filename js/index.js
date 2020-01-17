@@ -1,11 +1,11 @@
 function add() {
     let dialog = document.getElementById("dialog")
-    dialog.classList.remove("hide")
+    dialog.classList.add("show")
 }
 
 function closeDialog() {
     let dialog = document.getElementById("dialog")
-    dialog.classList.add("hide")
+    dialog.classList.remove("show")
 }
 
 function showSearch() {

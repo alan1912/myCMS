@@ -521,6 +521,48 @@ button:active, .btn:active {
 button:focus, .btn:focus {
   outline: 0;
 }
+button.red, .btn.red {
+  color: #fff;
+  background-color: #d2322d;
+}
+button.red:hover, .btn.red:hover {
+  background-color: #d64742;
+}
+button.blue, .btn.blue {
+  color: #fff;
+  background-color: #0088cc;
+}
+button.blue:hover, .btn.blue:hover {
+  background-color: #0099e6;
+}
+button.yellow, .btn.yellow {
+  color: #fff;
+  background-color: #ed9c28;
+}
+button.yellow:hover, .btn.yellow:hover {
+  background-color: #efa740;
+}
+button.green, .btn.green {
+  color: #fff;
+  background-color: #47a447;
+}
+button.green:hover, .btn.green:hover {
+  background-color: #51b451;
+}
+button.while, .btn.while {
+  color: #333;
+  background-color: #fff;
+}
+button.while:hover, .btn.while:hover {
+  background-color: #e6e6e6;
+}
+button.black, .btn.black {
+  color: #fff;
+  background-color: #333;
+}
+button.black:hover, .btn.black:hover {
+  background-color: #444;
+}
 
 label {
   display: inline-block;
@@ -567,6 +609,41 @@ label label.radio-inline:after {
   position: relative;
   width: auto;
   vertical-align: middle;
+}
+
+span.label {
+  display: inline;
+  padding: 3px 6px;
+  font-size: 14px;
+  font-weight: 500;
+  max-width: max-content;
+  -moz-border-radius: 0.25em;
+  -webkit-border-radius: 0.25em;
+  border-radius: 0.25em;
+}
+span.label.red {
+  color: #fff;
+  background-color: #d2322d;
+}
+span.label.blue {
+  color: #fff;
+  background-color: #0088cc;
+}
+span.label.yellow {
+  color: #fff;
+  background-color: #ed9c28;
+}
+span.label.green {
+  color: #fff;
+  background-color: #47a447;
+}
+span.label.while {
+  color: #333;
+  background-color: #fff;
+}
+span.label.black {
+  color: #fff;
+  background-color: #333;
 }
 
 input.form-control, select.form-control {
@@ -644,75 +721,33 @@ select {
   padding-left: 42px;
 }
 
-table {
+.table {
   min-width: max-content;
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
 }
-table.table > thead > tr > th {
+.table > thead > tr > th {
   vertical-align: bottom;
   border-bottom: 2px solid #ddd;
   padding: 8px;
 }
-table.table > thead:first-child > tr:first-child > th {
+.table > thead:first-child > tr:first-child > th {
   border-top: 0;
 }
-table.table > tbody > tr > td {
+.table > tbody > tr > td {
   padding: 8px;
   vertical-align: top;
   border-top: 1px solid #ddd;
 }
-table.table > tbody > tr > td.actions {
+.table > tbody > tr > td.actions {
   vertical-align: middle;
 }
-
-.red {
-  color: #fff;
-  background-color: #d2322d;
+.table > tbody > tr > td.actions > a {
+  color: #666;
 }
-.red:hover.hover {
-  background-color: #d64742;
-}
-
-.blue {
-  color: #fff;
-  background-color: #0088cc;
-}
-.blue:hover.hover {
-  background-color: #0099e6;
-}
-
-.yellow {
-  color: #fff;
-  background-color: #ed9c28;
-}
-.yellow:hover.hover {
-  background-color: #efa740;
-}
-
-.green {
-  color: #fff;
-  background-color: #47a447;
-}
-.green:hover.hover {
-  background-color: #51b451;
-}
-
-.while {
-  color: #333;
-  background-color: #fff;
-}
-.while:hover.hover {
-  background-color: #e6e6e6;
-}
-
-.black {
-  color: #fff;
-  background-color: #333;
-}
-.black:hover.hover {
-  background-color: #444;
+.table > tbody > tr > td.actions > a + a {
+  margin-left: 5px;
 }
 
 .flex {
@@ -926,6 +961,13 @@ div.search.show > div.search-body {
 }
 
 div.dialog {
+  display: none;
+}
+div.dialog.show {
+  display: inline-block;
+}
+
+div.dialog-container {
   display: flex;
   position: fixed;
   top: 0;
@@ -937,7 +979,7 @@ div.dialog {
   justify-content: center;
   align-items: center;
 }
-div.dialog > .box {
+div.dialog-container > .box {
   width: 60%;
   min-width: 300px;
   position: relative;
@@ -947,41 +989,41 @@ div.dialog > .box {
   -webkit-border-radius: 4px;
   border-radius: 4px;
 }
-div.dialog > .box.lg {
+div.dialog-container > .box.lg {
   width: 100%;
 }
-div.dialog > .box.md {
+div.dialog-container > .box.md {
   width: 60%;
 }
-div.dialog > .box.sm {
+div.dialog-container > .box.sm {
   width: 25%;
 }
-div.dialog > .box > .header {
+div.dialog-container > .box > .header {
   padding: 10px 20px;
   font-size: 18px;
   font-weight: 400;
   border-bottom: 1px solid #E9E9E6;
 }
-div.dialog > .box > .header > .close {
+div.dialog-container > .box > .header > .close {
   position: absolute;
   right: 20px;
   top: 12px;
   cursor: pointer;
 }
-div.dialog > .box > .body {
+div.dialog-container > .box > .body {
   overflow: auto;
   max-height: calc(100vh - 200px);
 }
-div.dialog > .box > .body > .body-container {
+div.dialog-container > .box > .body > .body-container {
   padding: 20px;
 }
-div.dialog > .box > .footer {
+div.dialog-container > .box > .footer {
   width: 100%;
   border-top: 1px solid #E9E9E6;
   padding: 10px 20px;
 }
 
-div.dialog + div.dialog-backdrop {
+div.dialog-container + div.dialog-backdrop {
   position: fixed;
   top: 0;
   right: 0;
