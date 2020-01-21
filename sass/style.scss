@@ -118,6 +118,7 @@ header {
                 overflow: hidden;
                 position: absolute;
                 width: 230px;
+                right: 0;
                 top: $headeHeight;
                 @include transition(max-height .3s ease-out);
                 @include border-radius(0 0 10px 10px);
@@ -310,7 +311,7 @@ header {
                         &.active > a {
                             color: $menuActiveColor;
                             &:not(:only-child):before {
-                                @include rotate(-90deg);
+                                @include rotate(-180deg);
                                 @include transition(transform .3s);
                             }
                         }
@@ -437,7 +438,7 @@ header {
     }
     > .panel-body {
         > .panel-content {
-            overflow: auto;
+            // overflow: auto;
             width: 100%;
             padding-bottom: 15px;
         }
@@ -675,33 +676,43 @@ select {
     }
 }
 
+div.table-scrollable {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    > table {
+        min-width: max-content;
+    }
+}
 // table
 .table {
-    min-width: max-content;
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
     > thead {
         > tr {
+            border: 1px solid #ddd;
             > th {
                 vertical-align: bottom;
-                border-bottom: 2px solid #ddd;
+                border: 1px solid #ddd;
                 padding: 8px;
             }
-        }
-        &:first-child > tr:first-child > th {
-            border-top: 0;
         }
     }
     > tbody {
         > tr {
+            border: 1px solid #ddd;
             > td {
                 padding: 8px;
                 vertical-align: top;
-                border-top: 1px solid #ddd;
+                border: 1px solid #ddd;
                 &.actions {
                     vertical-align: middle;
                     > a {
+                        font-size: 14px;
+                        padding: 6px;
                         color: #666;
                         &:hover {
                             color: #333;
