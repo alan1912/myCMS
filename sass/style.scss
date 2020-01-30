@@ -287,7 +287,7 @@ header {
                             text-align: center;
                         }
                         &:after {
-                            margin-left: 0.5em;
+                            margin-left: 8px;
                             content: attr(data-title);
                             font-size: 14px;
                             margin-top: 10px;
@@ -323,7 +323,7 @@ header {
                             > li {
                                 text-align: left;
                                 > a {
-                                    padding: 6px 15px 6px 50px;
+                                    padding: 10px 25px 10px 50px;
                                 }
                                 &.active > a {
                                     color: $menuActiveColor;

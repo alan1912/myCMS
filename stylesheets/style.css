@@ -294,7 +294,7 @@ header > .header-right > .userbox.show > .dropdown {
   text-align: center;
 }
 .content > nav div.sidebar div.menu ul a:after {
-  margin-left: 0.5em;
+  margin-left: 8px;
   content: attr(data-title);
   font-size: 14px;
   margin-top: 10px;
@@ -343,7 +343,7 @@ header > .header-right > .userbox.show > .dropdown {
   text-align: left;
 }
 .content > nav div.sidebar div.menu ul > li > ul > li > a {
-  padding: 6px 15px 6px 50px;
+  padding: 10px 25px 10px 50px;
 }
 .content > nav div.sidebar div.menu ul > li > ul > li.active > a {
   color: #fff;
