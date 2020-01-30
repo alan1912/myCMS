@@ -285,9 +285,9 @@ header > .header-right > .userbox.show > .dropdown {
   padding: 15px 25px;
   text-align: left;
   color: #abb4be;
+  line-height: 20px;
 }
 .content > nav div.sidebar div.menu ul a > i {
-  vertical-align: middle;
   width: 20px;
   height: 20px;
   font-size: 16px;
