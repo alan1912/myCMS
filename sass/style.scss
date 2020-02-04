@@ -304,13 +304,13 @@ header {
                             vertical-align: middle;
                             font-family: "Font Awesome 5 Free";
                             font-weight: 900;
-                            content: "\f0d7";
+                            content: "\f0da";
                             @include transition(transform .3s);
                         }
                         &.active > a {
                             color: $menuActiveColor;
                             &:not(:only-child):before {
-                                @include rotate(-180deg);
+                                @include rotate(90deg);
                                 @include transition(transform .3s);
                             }
                         }
