@@ -705,6 +705,43 @@ span.label.black {
   background-color: #333;
 }
 
+ul.tablist {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul.tablist > li {
+  display: inline-block;
+  height: 40px;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+ul.tablist > li:hover > a, ul.tablist > li.active > a {
+  cursor: pointer;
+  background-color: #3f6ad8;
+  color: #fff;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+ul.tablist > li > a {
+  display: inline-block;
+  text-decoration: none;
+  height: 100%;
+  color: #495057;
+  padding: 10px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+ul.tablist > li + li {
+  margin-left: 12px;
+}
+
 input.form-control, select.form-control {
   display: inline-block;
   width: 100%;
@@ -830,7 +867,7 @@ div.table-scrollable > table {
 .flex {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
 }
 .flex-left {
   display: flex;
