@@ -32,9 +32,14 @@ header {
 }
 header > .logo-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
   width: 250px;
   height: 100%;
+}
+header > .logo-container > img {
+  width: 45px;
+  height: 45px;
 }
 header > .header-right {
   display: flex;
@@ -414,6 +419,9 @@ header > .header-right > .userbox.show > .dropdown {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
+  -moz-box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+  -webkit-box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+  box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
 }
 .panel > .panel-header {
   width: 100%;
@@ -422,8 +430,9 @@ header > .header-right > .userbox.show > .dropdown {
   background: #f6f6f6;
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  padding: 0 10px 0 25px;
 }
 .panel > .panel-header:before {
   content: attr(data-title);
@@ -567,9 +576,12 @@ button.black:hover, .btn.black:hover {
 }
 
 label {
+  cursor: pointer;
+}
+
+div.label, label {
   display: inline-block;
   width: 100%;
-  cursor: pointer;
   position: relative;
   text-align: left;
   padding-top: 28px;
@@ -578,7 +590,7 @@ label {
   -webkit-user-select: none;
   user-select: none;
 }
-label:before, label:after {
+div.label:before, div.label:after, label:before, label:after {
   display: inline-block;
   position: absolute;
   top: 0;
@@ -590,35 +602,49 @@ label:before, label:after {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=75);
   opacity: 0.75;
 }
-label.must:before {
+div.label.must:before, label.must:before {
   content: '＊';
   color: #d2322d;
 }
-label.must:after {
+div.label.must:after, label.must:after {
   left: 15px;
 }
-label:after {
+div.label.bold:after, label.bold:after {
+  font-weight: bold;
+}
+div.label:after, label:after {
   content: attr(data-title);
 }
-label > label.checkbox-inline,
+div.label > label.checkbox-inline,
+div.label label.radio-inline, label > label.checkbox-inline,
 label label.radio-inline {
   display: inline-block;
   width: auto;
   padding: 0;
 }
-label > label.checkbox-inline:after,
+div.label > label.checkbox-inline:after,
+div.label label.radio-inline:after, label > label.checkbox-inline:after,
 label label.radio-inline:after {
   position: relative;
   width: auto;
   vertical-align: middle;
 }
-label.switch {
+div.label > label.checkbox-inline + label.checkbox-inline,
+div.label > label.checkbox-inline + label.radio-inline,
+div.label label.radio-inline + label.checkbox-inline,
+div.label label.radio-inline + label.radio-inline, label > label.checkbox-inline + label.checkbox-inline,
+label > label.checkbox-inline + label.radio-inline,
+label label.radio-inline + label.checkbox-inline,
+label label.radio-inline + label.radio-inline {
+  margin-left: 5px;
+}
+div.label.switch, label.switch {
   position: relative;
   display: inline-block;
   width: 50px;
   height: 20px;
 }
-label.switch .slider {
+div.label.switch .slider, label.switch .slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -631,7 +657,7 @@ label.switch .slider {
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-label.switch .slider:before {
+div.label.switch .slider:before, label.switch .slider:before {
   position: absolute;
   content: "";
   height: 20px;
@@ -644,33 +670,33 @@ label.switch .slider:before {
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-label.switch .slider.round {
+div.label.switch .slider.round, label.switch .slider.round {
   border-radius: 24px;
 }
-label.switch .slider.round:before {
+div.label.switch .slider.round:before, label.switch .slider.round:before {
   border-radius: 50%;
 }
-label.switch input {
+div.label.switch input, label.switch input {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
   display: none;
   width: 0;
   height: 0;
 }
-label.switch input:checked + .slider {
+div.label.switch input:checked + .slider, label.switch input:checked + .slider {
   background-color: #2196F3;
 }
-label.switch input:focus + .slider {
+div.label.switch input:focus + .slider, label.switch input:focus + .slider {
   box-shadow: 0 0 1px #2196F3;
 }
-label.switch input:checked + .slider:before {
+div.label.switch input:checked + .slider:before, label.switch input:checked + .slider:before {
   -moz-transform: translateX(22px);
   -ms-transform: translateX(22px);
   -webkit-transform: translateX(22px);
   transform: translateX(22px);
 }
 
-span.label {
+span.mark {
   display: inline;
   padding: 3px 6px;
   font-size: 14px;
@@ -680,27 +706,27 @@ span.label {
   -webkit-border-radius: 0.25em;
   border-radius: 0.25em;
 }
-span.label.red {
+span.mark.red {
   color: #fff;
   background-color: #d2322d;
 }
-span.label.blue {
+span.mark.blue {
   color: #fff;
   background-color: #0088cc;
 }
-span.label.yellow {
+span.mark.yellow {
   color: #fff;
   background-color: #ed9c28;
 }
-span.label.green {
+span.mark.green {
   color: #fff;
   background-color: #47a447;
 }
-span.label.while {
+span.mark.while {
   color: #333;
   background-color: #fff;
 }
-span.label.black {
+span.mark.black {
   color: #fff;
   background-color: #333;
 }
@@ -794,6 +820,7 @@ input[type="checkbox"], input[type="radio"] {
 
 select {
   color: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
 }
 
 .input-group {
@@ -821,7 +848,7 @@ div.table-scrollable {
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(26, 54, 126, 0.125);
   margin: 10px 0;
 }
 div.table-scrollable > table {
@@ -834,20 +861,20 @@ div.table-scrollable > table {
   border-collapse: collapse;
 }
 .table > thead > tr {
-  border: 1px solid #ddd;
+  border: 1px solid rgba(26, 54, 126, 0.125);
 }
 .table > thead > tr > th {
   vertical-align: bottom;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(26, 54, 126, 0.125);
   padding: 8px;
 }
 .table > tbody > tr {
-  border: 1px solid #ddd;
+  border: 1px solid rgba(26, 54, 126, 0.125);
 }
 .table > tbody > tr > td {
   padding: 8px;
   vertical-align: top;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(26, 54, 126, 0.125);
 }
 .table > tbody > tr > td.actions {
   vertical-align: middle;
@@ -1015,6 +1042,7 @@ div.search {
   position: relative;
   width: 100%;
   background-color: #fff;
+  border: 1px solid rgba(26, 54, 126, 0.125);
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
@@ -1052,7 +1080,7 @@ div.search > div.search-body {
   text-overflow: ellipsis;
   width: 100%;
   background-color: #fff;
-  border-top: 1px solid #E9E9E6;
+  border-top: 1px solid rgba(26, 54, 126, 0.125);
   -moz-border-radius: 0 0 4px 4px;
   -webkit-border-radius: 0;
   border-radius: 0 0 4px 4px;

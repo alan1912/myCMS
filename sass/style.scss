@@ -56,9 +56,14 @@ header {
     // @include box-shadow(0 0 5px 0 rgba(0,0,0,0.16));
     > .logo-container {
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
+        align-items: center;
         width: $menuWidth;
         height: 100%;
+        > img {
+            width: 45px;
+            height: 45px;
+        }
     }
     > .header-right {
         display: flex;
@@ -538,9 +543,12 @@ button, .btn {
 }
 
 label {
+    cursor: pointer;
+}
+
+div.label, label {
     display: inline-block;
     width: 100%;
-    cursor: pointer;
     position: relative;
     text-align: left;
     padding-top: 28px;
@@ -563,6 +571,9 @@ label {
     &.must:after {
         left: 15px;
     }
+    &.bold:after {
+        font-weight: bold;
+    }
     &:after {
         content: attr(data-title);
     }
@@ -576,6 +587,10 @@ label {
             position: relative;
             width: auto;
             vertical-align: middle;
+        }
+        + label.checkbox-inline,
+        + label.radio-inline {
+            margin-left: 5px;
         }
     }
 
@@ -627,7 +642,7 @@ label {
         }
     }
 }
-span.label {
+span.mark {
     display: inline;
     padding: 3px 6px;
     font-size: 14px;
@@ -733,6 +748,7 @@ input {
 select {
     // @include appearance(none);
     color: rgba(0, 0, 0, .45);
+    cursor: pointer;
 }
 
 .input-group {
