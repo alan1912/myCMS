@@ -6,6 +6,7 @@ $red: #d2322d;
 $green: #47a447;
 $yellow: #ed9c28;
 $blue: #0088cc;
+$gray: #f5f5f5;
 
 $blackHover: #444;
 $whileHover: #e6e6e6;
@@ -13,6 +14,7 @@ $redHover: #d64742;
 $greenHover: #51b451;
 $yellowHover: #efa740;
 $blueHover: #0099e6;
+$grayHover: #dcdcdc;
 
 $menuBgColor: #1D2127;
 $menuBoderColor: #3a3a3a;
@@ -36,11 +38,17 @@ body {
     padding: 0;
     color: rgba(90, 90, 90, 1.00);
     font-size: medium;
-    text-align: center;
     font-family: "微軟正黑體", "Open sans", "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
     width: 100%;
     height: 100vh;
     background-color: #ecedf0;
+}
+
+h2.title {
+    font-size: 30px;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 
 header {
@@ -197,6 +205,7 @@ header {
                     }
                     &:hover {
                         width: $menuWidth;
+                        overflow: auto;
                         ul > li {
                             a {
                                 padding: 15px 25px;
@@ -394,7 +403,7 @@ header {
     }
 }
 
-.panel {
+div.panel {
     width: 100%;
     height: 100%;
     background-color: #fff;
@@ -472,6 +481,46 @@ header {
     }
 }
 
+div.section {
+    display:flex;
+    flex-direction:column;
+    width: 100%;
+    @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+    @include transition(max-height .5s);
+    > .section-header {
+        display: flex;
+        min-height: 40px;
+        justify-content: center;
+        align-items: center;
+        font-weight: 500;
+        font-size: 16px;
+        border: 1px solid rgba(26, 54, 126, 0.3);
+        @include border-radius(4px);
+        @include user-select(none);
+        cursor: pointer;
+        &:before {
+            content: attr(data-title);
+        }
+    }
+    > .section-body {
+        overflow: hidden;
+        transform-origin: top;
+        padding: 10px;
+        @include transform(scaleY(1));
+        @include transition(transform .3s ease-out);
+    }
+    &-collapsed {
+        max-height: 40px;
+        @include transition(max-height .5s);
+        > .section-header {
+            @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+        }
+        > .section-body{
+            @include transform(scaleY(0));
+        }
+    }
+}
+
 img {
     width: 100%;
     height: 100%;
@@ -540,6 +589,13 @@ button, .btn {
             background-color: $blackHover;
         }
     }
+    &.gray {
+        color: $black;
+        background-color: $gray;
+        &:hover {
+            background-color: $grayHover;
+        }
+    }
 }
 
 label {
@@ -560,6 +616,7 @@ div.label, label {
         left: 0;
         width: 100%;
         font-size: 14px;
+        font-weight: 500;
         height: 28px;
         line-height: 28px;
         @include opacity(0.75);
@@ -594,6 +651,9 @@ div.label, label {
         }
     }
 
+    &.no-title {
+        padding-top: 0;
+    }
     &.switch {
         position: relative;
         display: inline-block;
@@ -642,36 +702,64 @@ div.label, label {
         }
     }
 }
+
+div.info {
+    display: inline-block;
+    width: 100%;
+    min-width: max-content;
+    text-align: left;
+    font-size: 14px;
+    &:before {
+        font-weight: 500;
+        @include opacity(0.75);
+        content: attr(data-title) ' : ';
+    }
+}
+
 span.mark {
     display: inline;
     padding: 3px 6px;
     font-size: 14px;
     font-weight: 500;
     max-width: max-content;
+    color: $black;
+    background-color: $while;
+    border: 1px #333 solid;
     @include border-radius(.25em);
     &.red {
+        border: 0;
         color: $while;
         background-color: $red;
     }
     &.blue {
+        border: 0;
         color: $while;
         background-color: $blue;
     }
     &.yellow {
+        border: 0;
         color: $while;
         background-color: $yellow;
     }
     &.green {
+        border: 0;
         color: $while;
         background-color: $green;
     }
     &.while {
+        border: 0;
         color: $black;
         background-color: $while;
     }
     &.black {
+        border: 0;
         color: $while;
         background-color: $black;
+    }
+    &.gray {
+        border: 0;
+        color: $while;
+        background-color: #777;
     }
 }
 
@@ -774,50 +862,46 @@ select {
     }
 }
 
+// table
 div.table-scrollable {
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
-    border: 1px solid rgba(26, 54, 126, 0.125);
-    margin: 10px 0;
+    // border: 1px solid rgba(26, 54, 126, 0.125);
     > table {
+        margin-bottom: 5px;
         min-width: max-content;
     }
 }
-// table
+
 .table {
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
-    > thead {
-        > tr {
+    text-align: center;
+    @include opacity(.9);
+    tr {
+        > th, .th {
+            vertical-align: middle;
             border: 1px solid rgba(26, 54, 126, 0.125);
-            > th {
-                vertical-align: bottom;
-                border: 1px solid rgba(26, 54, 126, 0.125);
-                padding: 8px;
-            }
+            padding: 8px;
+            font-weight: 500;
         }
-    }
-    > tbody {
-        > tr {
+        > td, .td {
+            font-size: 14px;
+            padding: 8px;
+            vertical-align: middle;
             border: 1px solid rgba(26, 54, 126, 0.125);
-            > td {
-                padding: 8px;
-                vertical-align: top;
-                border: 1px solid rgba(26, 54, 126, 0.125);
-                &.actions {
-                    vertical-align: middle;
-                    > a {
-                        font-size: 14px;
-                        padding: 6px;
-                        color: #666;
-                        &:hover {
-                            color: #333;
-                        }
-                        & + a {
-                            margin-left: 5px;
-                        }
+            &.actions {
+                > a {
+                    font-size: 14px;
+                    padding: 6px;
+                    color: #666;
+                    &:hover {
+                        color: #333;
+                    }
+                    & + a {
+                        margin-left: 5px;
                     }
                 }
             }
@@ -881,13 +965,13 @@ div.table-scrollable {
 }
 
 .left {
-    text-align: left;
+    text-align: left !important;
 }
 .center {
-    text-align: center;
+    text-align: center !important;
 }
 .right {
-    text-align: right;
+    text-align: right !important;
 }
 .row {
     width: 100%;
